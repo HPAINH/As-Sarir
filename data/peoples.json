@@ -1,0 +1,110 @@
+{
+  "avar": {
+    "id": "avar", "name": "Аварцы", "adj": "аварский", "home": "sogratl", "region": "andalal",
+    "model": "characters/avar_warrior",
+    "weapons": ["saber", "kinjal", "rifle_sogratl", "pistol", "bow"], "slots": ["saber", "kinjal", "rifle_sogratl", "pistol", "bow"], "armor": "kaftan",
+    "items": ["rifle_sogratl"],
+    "bonus": { "ambush_damage": 0.10, "climb_speed": 0.10 },
+    "bonusText": "+10% урона из засады в горах, быстрее лазают по скалам",
+    "unit": { "id": "andalal_marksman", "name": "Андалальские стрелки", "model": "characters/avar_warrior", "weapon": "rifle", "role": "marksman", "hp": 110 },
+    "uniqueItem": "Наследное ружьё мастера из Согратля",
+    "polity": "Аварское ханство (Хунзах), вольные общества, в т. ч. Андалал",
+    "history": "Аварские вольные общества Андалала стали центром сопротивления в 1741 году. Над Согратлем и Мегебом шах поставил лагерь на плато Турчидаг — и здесь его армия потерпела главное поражение."
+  },
+  "dargin": {
+    "id": "dargin", "name": "Даргинцы", "adj": "даргинский", "home": "akusha", "region": "dargin",
+    "model": "characters/dargin_kubachi_warrior",
+    "weapons": ["saber", "kinjal_kubachi", "rifle", "pistol", "bow"], "slots": ["saber", "kinjal_kubachi", "rifle", "pistol", "bow"], "armor": "mail",
+    "items": ["kinjal_kubachi"],
+    "bonus": { "forge_discount": 0.15 },
+    "bonusText": "Кузня Кубачи: −15% стоимость ковки и ремонта, доступ к кольчугам",
+    "unit": { "id": "kubachi_mailed", "name": "Кубачинские латники", "model": "characters/dargin_kubachi_warrior", "weapon": "saber", "role": "heavy", "hp": 150, "armor": 0.25 },
+    "uniqueItem": "Кинжал с чернью кубачинской работы",
+    "polity": "Акуша-Дарго, Кайтагское уцмийство, Кубачи",
+    "history": "Союз Акуша-Дарго и Кайтагское уцмийство держали срединный Дагестан. Мастера Кубачи славились оружием и кольчугами на весь Кавказ."
+  },
+  "lak": {
+    "id": "lak", "name": "Лакцы", "adj": "лакский", "home": "kumukh", "region": "lakia",
+    "model": "characters/lak_warrior",
+    "weapons": ["saber", "kinjal", "rifle", "pistol", "bow"], "slots": ["saber", "kinjal", "rifle", "pistol", "bow"], "armor": "kaftan",
+    "items": ["banner_kazikumukh"],
+    "bonus": { "trade": 0.10, "field_repair": 1 },
+    "bonusText": "+10% выгоды в торговле, ремонт оружия в поле",
+    "unit": { "id": "surkhay_guard", "name": "Ханская гвардия Сурхая", "model": "characters/lak_warrior", "weapon": "saber", "role": "cavalry", "hp": 130, "mounted": true },
+    "uniqueItem": "Знамя Казикумуха (+мораль отряда)",
+    "polity": "Казикумухское ханство",
+    "history": "Казикумухский хан Сурхай I не раз сражался с Надиром. В августе 1741 года шах штурмовал Кумух, и Сурхай попал к нему в руки."
+  },
+  "lezgin": {
+    "id": "lezgin", "name": "Лезгины", "adj": "лезгинский", "home": "akhty", "region": "samur",
+    "model": "characters/lezgin_warrior",
+    "weapons": ["saber", "kinjal", "rifle", "pistol", "bow"], "slots": ["saber", "kinjal", "rifle", "pistol", "bow"], "armor": "kaftan",
+    "items": ["burka"],
+    "bonus": { "forest_speed": 0.10, "raid_loot": 0.20, "arrow_resist": 0.25 },
+    "bonusText": "+10% скорости в лесу и на тропах, лучшие набеги на обозы",
+    "unit": { "id": "lezgin_skirmisher", "name": "Лезгинские застрельщики", "model": "characters/lezgin_warrior", "weapon": "rifle", "role": "skirmisher", "hp": 100 },
+    "uniqueItem": "Плащ-бурка: защита от холода и стрел",
+    "polity": "Вольные общества Ахты-пара, Докуз-пара, Кюре",
+    "history": "Вольные общества долины Самура годами вели войну с наместниками шаха. В 1738 году здесь погиб его брат Ибрагим-хан."
+  },
+  "tabasaran": {
+    "id": "tabasaran", "name": "Табасаранцы", "adj": "табасаранский", "home": "khuchni", "region": "tabasaran",
+    "model": "characters/tabasaran_warrior",
+    "weapons": ["saber", "kinjal", "rifle", "pistol", "bow"], "slots": ["saber", "kinjal", "rifle", "pistol", "bow"], "armor": "kaftan",
+    "items": ["carpet_map"],
+    "bonus": { "patrol_marks": 1 },
+    "bonusText": "Знание подступов к Дербенту: отметки патрулей на карте",
+    "unit": { "id": "tabasaran_archer", "name": "Табасаранские лучники и пращники", "model": "characters/tabasaran_warrior", "weapon": "bow", "role": "archer", "hp": 95 },
+    "uniqueItem": "Ковёр-карта (раскрывает тайники региона)",
+    "polity": "Табасаранское майсумство и кадийство",
+    "history": "Табасаран лежит на лесистых подступах к Дербенту. Его общества первыми встречали персидские колонны, шедшие от моря в горы."
+  },
+  "agul": {
+    "id": "agul", "name": "Агульцы", "adj": "агульский", "home": "tpig", "region": "samur",
+    "model": "characters/agul_warrior",
+    "weapons": ["axe", "kinjal", "rifle", "pistol", "bow"], "slots": ["axe", "kinjal", "rifle", "pistol", "bow"], "armor": "kaftan",
+    "items": ["guide_staff"],
+    "bonus": { "climb_stamina": 0.20 },
+    "bonusText": "Выносливость: −20% расход сил на подъёмах",
+    "unit": { "id": "agul_guide", "name": "Горные проводники", "model": "characters/agul_warrior", "weapon": "axe", "role": "guide", "hp": 105 },
+    "uniqueItem": "Посох проводника (ориентир в тумане)",
+    "polity": "Вольные общества Агул-дере",
+    "history": "Агульские общества жили в узких ущельях. Их проводники знали тропы, о которых не догадывались ни персидские разъезды, ни соседи."
+  },
+  "rutul": {
+    "id": "rutul", "name": "Рутульцы", "adj": "рутульский", "home": "rutul", "region": "samur",
+    "model": "characters/rutul_warrior",
+    "weapons": ["spear", "kinjal", "rifle", "pistol", "bow"], "slots": ["spear", "kinjal", "rifle", "pistol", "bow"], "armor": "kaftan",
+    "items": ["alarm_horn"],
+    "bonus": { "cav_damage_gorge": 0.15 },
+    "bonusText": "+15% урона по коннице в ущельях",
+    "unit": { "id": "rutul_pass_guard", "name": "Защитники перевалов", "model": "characters/rutul_warrior", "weapon": "spear", "role": "spearman", "hp": 125 },
+    "uniqueItem": "Рог тревоги (призыв подкрепления раз в бой)",
+    "polity": "Рутульский магал",
+    "history": "Рутульский магал стерёг перевалы в верховьях Самура. Копейщики на узкой тропе останавливали конницу лучше любой стены."
+  },
+  "tsakhur": {
+    "id": "tsakhur", "name": "Цахуры", "adj": "цахурский", "home": "tsakhur", "region": "samur",
+    "model": "characters/tsakhur_warrior",
+    "weapons": ["saber", "kinjal", "rifle", "pistol", "bow"], "slots": ["saber", "kinjal", "rifle", "pistol", "bow"], "armor": "kaftan",
+    "items": ["shepherd_dog"],
+    "bonus": { "horse_regen": 0.5 },
+    "bonusText": "Пастушеские знания: конь быстрее восстанавливается, дешевле корм",
+    "unit": { "id": "tsakhur_scout", "name": "Конные разведчики", "model": "characters/tsakhur_warrior", "weapon": "pistol", "role": "scout", "hp": 100, "mounted": true },
+    "uniqueItem": "Пастуший пёс-волкодав (компаньон)",
+    "polity": "Цахурское (Илисуйское) султанство",
+    "history": "Цахурское султанство лежало на высокогорье у истоков Самура. Здесь жили пастухами, а лучшие кони и псы ценились дороже серебра."
+  },
+  "kumyk": {
+    "id": "kumyk", "name": "Кумыки", "adj": "кумыкский", "home": "endirey", "region": "kumyk",
+    "model": "characters/kumyk_warrior",
+    "weapons": ["shashka", "kinjal", "rifle", "pistol", "bow"], "slots": ["shashka", "kinjal", "rifle", "pistol", "bow"], "armor": "kaftan",
+    "items": ["shamkhal_saddle"],
+    "bonus": { "cav_plain": 0.15 },
+    "bonusText": "+15% скорости и урона конницы на равнине",
+    "unit": { "id": "kumyk_rider", "name": "Кумыкская конница", "model": "characters/kumyk_warrior", "weapon": "shashka", "role": "cavalry", "hp": 120, "mounted": true },
+    "uniqueItem": "Седло шамхальской работы",
+    "polity": "Тарковское шамхальство, Эндирей",
+    "history": "Шамхал Хасбулат был поставлен шахом, но знать Эндирея и многие кумыкские всадники не признали власти пришельцев."
+  }
+}

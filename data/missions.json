@@ -1,0 +1,5812 @@
+{
+ "main": [
+  {
+   "id": "m01",
+   "n": 1,
+   "title": "Первая кровь",
+   "act": 0,
+   "desc": "1735 год. Персидский разъезд врывается в родное село. Возьмите оружие.",
+   "steps": [
+    {
+     "type": "cutscene",
+     "id": "intro"
+    },
+    {
+     "type": "talk",
+     "who": "patimat",
+     "at": "home:square",
+     "yaw": 180,
+     "text": "Поговорите с сестрой Патимат на площади",
+     "lines": [
+      [
+       "patimat",
+       "{hero}! Наконец-то. Старшие ушли на дальние пастбища, в селе одни старики да мы."
+      ],
+      [
+       "patimat",
+       "С утра над перевалом дым. Говорят, у Дербента стоит войско Надир-шаха, а его разъезды рыщут по горам."
+      ],
+      [
+       "hero",
+       "Пусть рыщут. Здесь им не равнина."
+      ],
+      [
+       "patimat",
+       "Проверь оружие. <kbd>1</kbd>–<kbd>5</kbd> — смена, <kbd>R</kbd> — зарядить ружьё. Ахмед ждёт у верхних террас."
+      ]
+     ]
+    },
+    {
+     "type": "talk",
+     "who": "ahmed",
+     "at": "home:edge:40",
+     "text": "Найдите Ахмеда у края села",
+     "lines": [
+      [
+       "ahmed",
+       "Видишь пыль на тропе? Всадники в красных шапках. Пятеро, может, шестеро."
+      ],
+      [
+       "ahmed",
+       "Стреляй первым, пока они на открытом месте. Ружьё бьёт далеко, но перезарядка долгая — каждый выстрел должен попасть."
+      ],
+      [
+       "ahmed",
+       "Подпустишь близко — бери саблю. <b>ЛКМ</b> — удар, <b>ПКМ</b> — блок. Пошли, брат."
+      ]
+     ]
+    },
+    {
+     "type": "fight",
+     "at": "home:square",
+     "text": "Отбейте персидский разъезд",
+     "checkpoint": true,
+     "say": "Персы входят в село! Держитесь вместе с Ахмедом.",
+     "allies": [
+      {
+       "at": "home:edge:40",
+       "u": "ahmed",
+       "follow": true,
+       "essential": true,
+       "tag": "hero_ally"
+      },
+      {
+       "at": "home:square",
+       "u": "militia_rifle",
+       "n": 2,
+       "state": "idle"
+      }
+     ],
+     "spawn": [
+      {
+       "at": {
+        "near": "home",
+        "a": 60,
+        "d": 120
+       },
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         3
+        ]
+       ],
+       "to": "home:square",
+       "attack": true
+      }
+     ],
+     "leash": {
+      "at": "home",
+      "r": 220
+     }
+    },
+    {
+     "type": "dialog",
+     "lines": [
+      [
+       "ahmed",
+       "Первая кровь… Руки дрожат, а ведь мы победили."
+      ],
+      [
+       "patimat",
+       "Они вернутся. Разъезд — это глаза войска."
+      ],
+      [
+       "elder",
+       "Дети, сегодня вы спасли село. Но завтра нам понадобятся кони — пешими от конницы шаха не уйти."
+      ]
+     ]
+    }
+   ],
+   "auto": true,
+   "linear": true,
+   "set": {
+    "act": 0,
+    "season": "summer",
+    "hours": 9.5,
+    "weather": "clear"
+   },
+   "reward": {
+    "xp": 120,
+    "coins": 15,
+    "chronicle": [
+     "nader_campaigns"
+    ]
+   }
+  },
+  {
+   "id": "m02",
+   "n": 2,
+   "title": "Конь из табуна",
+   "act": 0,
+   "desc": "Поймайте и объездите коня из сельского табуна, а затем докажите Ахмеду, что он быстр.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "elder",
+     "at": "home:square",
+     "text": "Поговорите со старейшиной",
+     "lines": [
+      [
+       "elder",
+       "Табун пасётся ниже села. Есть там гнедой трёхлетка — дикий, никого не подпускает."
+      ],
+      [
+       "elder",
+       "Подойди тихо, пригнувшись (<kbd>C</kbd>), и вскочи на него (<kbd>E</kbd>). Объездишь — он твой."
+      ]
+     ]
+    },
+    {
+     "type": "mount",
+     "at": {
+      "near": "home",
+      "a": 200,
+      "d": 150
+     },
+     "breed": "mountain",
+     "name": "Чалый",
+     "text": "Подкрадитесь к табуну и вскочите на гнедого (C — присесть, E — сесть)"
+    },
+    {
+     "type": "dialog",
+     "lines": [
+      [
+       "narrator",
+       "Конь встаёт на дыбы, бьётся — и наконец смиряется. Вы назвали его <b>Чалым</b>."
+      ],
+      [
+       "ahmed",
+       "Ха! Держишься как пастух из Цахура. А теперь — наперегонки до старой груши на склоне!"
+      ]
+     ]
+    },
+    {
+     "type": "ride",
+     "at": {
+      "near": "home",
+      "a": 120,
+      "d": 300
+     },
+     "limit": 75,
+     "r": 14,
+     "text": "Скачите к груше на склоне раньше Ахмеда",
+     "limitFail": "Ахмед примчался первым",
+     "say": "<kbd>Shift</kbd> — галоп. Следите за выносливостью коня."
+    },
+    {
+     "type": "ride",
+     "at": "home:square",
+     "r": 14,
+     "text": "Возвращайтесь в село"
+    }
+   ],
+   "req": [
+    "m01"
+   ],
+   "auto": true,
+   "linear": true,
+   "set": {
+    "hours": 13
+   },
+   "reward": {
+    "xp": 100,
+    "chronicle": [
+     "horses"
+    ]
+   },
+   "done": {
+    "horse": {
+     "breed": "mountain",
+     "name": "Чалый"
+    }
+   }
+  },
+  {
+   "id": "m03",
+   "n": 3,
+   "title": "Пепел",
+   "act": 0,
+   "desc": "Пока вы были на склонах, разъезд вернулся с подмогой.",
+   "steps": [
+    {
+     "type": "cutscene",
+     "id": "ashes",
+     "do": {
+      "villages": {
+       "home": "burned"
+      },
+      "hours": 19.2,
+      "weather": "fog"
+     }
+    },
+    {
+     "type": "fight",
+     "at": "home:square",
+     "text": "Перебейте мародёров среди пожарищ",
+     "spawn": [
+      {
+       "at": "home:square",
+       "g": [
+        [
+         "sarbaz",
+         3
+        ],
+        [
+         "light_cav",
+         1
+        ]
+       ],
+       "spread": 12,
+       "state": "wander"
+      }
+     ],
+     "leash": {
+      "at": "home",
+      "r": 200
+     }
+    },
+    {
+     "type": "interact",
+     "text": "Похороните родных на сельском кладбище",
+     "points": [
+      {
+       "at": "home:cemetery",
+       "label": "Похоронить родных",
+       "say": "Камни ложатся один на другой. Вы читаете молитву, которую помнили с детства."
+      }
+     ]
+    },
+    {
+     "type": "talk",
+     "who": "surkhay",
+     "at": "home:mosque",
+     "name": "Сурхай-хан",
+     "text": "Сурхай-хан Казикумухский ждёт у мечети",
+     "lines": [
+      [
+       "surkhay",
+       "Я видел дым с перевала. Шах взял Дербент и Шемаху, его воины жгут сёла, чтобы горцы склонились."
+      ],
+      [
+       "surkhay",
+       "Мы уходим в Андалал — там скалы, там вольные общества. Собери тех, кто выжил."
+      ],
+      [
+       "hero",
+       "Я пойду с вами. Но сначала дам клятву."
+      ]
+     ],
+     "choices": [
+      {
+       "text": "«Клянусь отомстить за каждый сожжённый дом».",
+       "choice": {
+        "oath": "revenge"
+       },
+       "rep": {
+        "home": 5
+       }
+      },
+      {
+       "text": "«Клянусь, что больше ни одно село не сгорит, пока я жив».",
+       "choice": {
+        "oath": "defend"
+       },
+       "rep": {
+        "home": 10
+       }
+      }
+     ]
+    },
+    {
+     "type": "cutscene",
+     "id": "years_pass"
+    }
+   ],
+   "req": [
+    "m02"
+   ],
+   "auto": true,
+   "linear": true,
+   "reward": {
+    "xp": 150,
+    "chronicle": [
+     "surkhay"
+    ]
+   },
+   "done": {
+    "act": 1,
+    "season": "summer",
+    "hours": 7,
+    "weather": "clear",
+    "villages": {
+     "home": "highlanders"
+    },
+    "toast": "Прошло шесть лет. Село отстроено заново."
+   }
+  },
+  {
+   "id": "m04",
+   "n": 4,
+   "title": "Голос с минарета",
+   "act": 1,
+   "desc": "2 июля 1741 года. Войско Надир-шаха вторглось в Дагестан. Поднимите соседние сёла.",
+   "steps": [
+    {
+     "type": "cutscene",
+     "id": "act1"
+    },
+    {
+     "type": "interact",
+     "text": "Поднимитесь на минарет и подайте сигнал",
+     "points": [
+      {
+       "at": "home:mosque",
+       "label": "Ударить в набат",
+       "fx": "alarm",
+       "say": "Над террасами летит гул. Люди выбегают из домов."
+      }
+     ]
+    },
+    {
+     "type": "interact",
+     "text": "Предупредите соседние сёла: {near1}, {near2}, {near3}",
+     "limit": 720,
+     "limitFail": "персы пришли раньше вестей",
+     "points": [
+      {
+       "at": "nearby:1:square",
+       "label": "Предупредить старейшин",
+       "fx": "alarm"
+      },
+      {
+       "at": "nearby:2:square",
+       "label": "Предупредить старейшин",
+       "fx": "alarm"
+      },
+      {
+       "at": "nearby:3:square",
+       "label": "Предупредить старейшин",
+       "fx": "alarm"
+      }
+     ]
+    },
+    {
+     "type": "fight",
+     "at": "nearby:1:edge:0",
+     "text": "Перехватите персидских разведчиков у {near1}",
+     "spawn": [
+      {
+       "at": {
+        "near": "nearby:1",
+        "a": 0,
+        "d": 140
+       },
+       "g": [
+        [
+         "light_cav",
+         3
+        ]
+       ],
+       "to": "nearby:1:square",
+       "attack": true
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m03"
+   ],
+   "start": "home:mosque",
+   "hint": "Сельский мулла ждёт у мечети",
+   "reward": {
+    "xp": 200,
+    "coins": 30,
+    "rep": {
+     "home": 5
+    },
+    "chronicle": [
+     "invasion_1741"
+    ]
+   }
+  },
+  {
+   "id": "m05",
+   "n": 5,
+   "title": "Тени у Дербента",
+   "act": 1,
+   "desc": "Разведайте лагерь шаха под стенами Дербента: сколько пушек, где замбураки.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": "poi:tower_derbent",
+     "r": 18,
+     "text": "Доберитесь до дозорной башни у Дербента"
+    },
+    {
+     "type": "talk",
+     "who": "kalushkin",
+     "at": {
+      "near": "poi:tower_derbent",
+      "a": 90,
+      "d": 10
+     },
+     "name": "Иван Калушкин",
+     "text": "Встретьтесь с русским резидентом",
+     "lines": [
+      [
+       "kalushkin",
+       "Тише, тише. Я Иван Калушкин, состою при шахском дворе от государыни. Мне здесь лишние уши ни к чему."
+      ],
+      [
+       "kalushkin",
+       "Пишу в Петербург: у шаха пятьдесят две — пятьдесят пять тысяч. Другие говорят — сто, а то и полтораста. Правды никто не знает."
+      ],
+      [
+       "kalushkin",
+       "А вот пушки можно сосчитать. Сосчитай — и мы оба будем знать больше. Ночью, пригнувшись, вдоль палисада."
+      ]
+     ]
+    },
+    {
+     "type": "interact",
+     "stealth": true,
+     "lives": 2,
+     "checkpoint": true,
+     "text": "Скрытно осмотрите батарею и замбураки (C — присесть)",
+     "do": {
+      "hours": 22.5
+     },
+     "points": [
+      {
+       "at": "cannon:derbent:0",
+       "r": 20,
+       "label": "Сосчитать орудия"
+      },
+      {
+       "at": "cannon:derbent:2",
+       "r": 20,
+       "label": "Сосчитать орудия"
+      },
+      {
+       "at": {
+        "near": "camp:derbent",
+        "a": 180,
+        "d": 55
+       },
+       "r": 20,
+       "label": "Осмотреть замбураки"
+      }
+     ]
+    },
+    {
+     "type": "goto",
+     "at": {
+      "near": "poi:tower_derbent",
+      "a": 90,
+      "d": 10
+     },
+     "r": 8,
+     "text": "Вернитесь к Калушкину"
+    },
+    {
+     "type": "dialog",
+     "lines": [
+      [
+       "kalushkin",
+       "Четыре полевых орудия на этой стороне и верблюжьи пушки… Шах готовится не к набегу, а к войне."
+      ],
+      [
+       "kalushkin",
+       "Запомни: я продаю сведения всем, кто платит. Сегодня — тебе. Завтра, может, и не тебе."
+      ]
+     ]
+    }
+   ],
+   "req": [
+    "m04"
+   ],
+   "start": "village:khuchni:square",
+   "hint": "Табасаранцы в Хучни знают тропы к Дербенту",
+   "reward": {
+    "xp": 250,
+    "coins": 40,
+    "chronicle": [
+     "kalushkin",
+     "army_size"
+    ]
+   }
+  },
+  {
+   "id": "m06",
+   "n": 6,
+   "title": "Караван беженцев",
+   "act": 1,
+   "desc": "Семьи из Хучни уходят в горы. Персидская конница идёт по следу.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "elder",
+     "at": "village:khuchni:square",
+     "name": "Старейшина Хучни",
+     "lines": [
+      [
+       "elder",
+       "Персы взяли дорогу на Дербент. Женщины и дети должны уйти в Тпиг, к агульцам."
+      ],
+      [
+       "elder",
+       "Дорога лесом, но конница там тоже ходит. Проведи их."
+      ]
+     ]
+    },
+    {
+     "type": "escort",
+     "checkpoint": true,
+     "text": "Доведите беженцев до Тпига",
+     "path": {
+      "road": [
+       "village:khuchni:square",
+       "village:tpig:square"
+      ]
+     },
+     "mode": "run",
+     "wait": 35,
+     "who": [
+      {
+       "at": "village:khuchni:square",
+       "u": "villager_f",
+       "n": 3
+      },
+      {
+       "at": "village:khuchni:square",
+       "u": "villager_m",
+       "n": 2
+      },
+      {
+       "at": "village:khuchni:square",
+       "u": "militia_rifle",
+       "n": 2,
+       "fight": true,
+       "tag": "escort"
+      }
+     ],
+     "ambush": [
+      {
+       "at": 0.3,
+       "say": "Всадники с фланга!",
+       "spawn": [
+        {
+         "at": "player",
+         "g": [
+          [
+           "light_cav",
+           3
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "at": 0.7,
+       "say": "Засада у брода!",
+       "spawn": [
+        {
+         "at": "player",
+         "g": [
+          [
+           "officer",
+           1
+          ],
+          [
+           "sarbaz",
+           3
+          ]
+         ]
+        }
+       ],
+       "side": -0.7
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m05"
+   ],
+   "start": "village:khuchni:square",
+   "hint": "Беженцы собираются в Хучни",
+   "reward": {
+    "xp": 300,
+    "coins": 30,
+    "rep": {
+     "tabasaran": 15,
+     "agul": 10
+    }
+   }
+  },
+  {
+   "id": "m07",
+   "n": 7,
+   "title": "Обоз с порохом",
+   "act": 1,
+   "desc": "Персидский обоз с порохом встал на привал в табасаранском лесу.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "patimat",
+     "at": {
+      "near": "village:khuchni",
+      "a": 70,
+      "d": 90
+     },
+     "text": "Патимат выследила обоз",
+     "lines": [
+      [
+       "patimat",
+       "Они встали в лесу, телеги с порохом под рогожей. Охрана — сарбазы и офицер."
+      ],
+      [
+       "patimat",
+       "Я зайду с другой стороны и сниму часового стрелой. Ты — бей офицера: без него они побегут."
+      ]
+     ]
+    },
+    {
+     "type": "fight",
+     "at": {
+      "near": "village:khuchni",
+      "a": 70,
+      "d": 220
+     },
+     "text": "Перебейте охрану обоза",
+     "checkpoint": true,
+     "allies": [
+      {
+       "at": {
+        "near": "village:khuchni",
+        "a": 70,
+        "d": 100
+       },
+       "u": "patimat",
+       "follow": true,
+       "essential": true,
+       "tag": "hero_ally"
+      }
+     ],
+     "spawn": [
+      {
+       "at": {
+        "near": "village:khuchni",
+        "a": 70,
+        "d": 220
+       },
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         3
+        ],
+        [
+         "jazayerchi",
+         2
+        ]
+       ],
+       "spread": 8,
+       "guard": true
+      }
+     ]
+    },
+    {
+     "type": "dialog",
+     "lines": [
+      [
+       "patimat",
+       "Пороха здесь — на целую битву. Взорвём, чтобы он не достался шаху, или увезём своим?"
+      ]
+     ],
+     "choices": [
+      {
+       "text": "Забрать порох для ополчения.",
+       "choice": {
+        "powder": "take"
+       },
+       "give": {
+        "powder": 20,
+        "lead": 15
+       },
+       "rep": {
+        "home": 5
+       }
+      },
+      {
+       "text": "Взорвать обоз — пусть шах услышит.",
+       "choice": {
+        "powder": "blow"
+       },
+       "set": {
+        "convoy_blown": true
+       }
+      }
+     ]
+    },
+    {
+     "type": "interact",
+     "if": {
+      "choice": {
+       "powder": "blow"
+      }
+     },
+     "text": "Подожгите фитиль и отойдите",
+     "points": [
+      {
+       "at": {
+        "near": "village:khuchni",
+        "a": 70,
+        "d": 222
+       },
+       "label": "Поджечь фитиль",
+       "fx": "explode",
+       "delay": 4,
+       "radius": 12,
+       "dmg": 200
+      }
+     ]
+    },
+    {
+     "type": "wait",
+     "if": {
+      "choice": {
+       "powder": "blow"
+      }
+     },
+     "t": 5,
+     "text": ""
+    }
+   ],
+   "req": [
+    "m06"
+   ],
+   "start": {
+    "near": "village:khuchni",
+    "a": 70,
+    "d": 90
+   },
+   "hint": "Патимат ждёт в лесу к востоку от Хучни",
+   "reward": {
+    "xp": 300,
+    "coins": 25,
+    "chronicle": [
+     "persian_army"
+    ]
+   }
+  },
+  {
+   "id": "m08",
+   "n": 8,
+   "title": "Легенда старика",
+   "act": 1,
+   "desc": "Хранитель зиярата Хаджи-Али зовёт вас. Говорят, он знает, зачем шах на самом деле пришёл в горы.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": "poi:shrine_hadji",
+     "r": 14,
+     "text": "Доберитесь до святилища в горах"
+    },
+    {
+     "type": "talk",
+     "who": "hadji_ali",
+     "at": "poi:shrine_hadji",
+     "text": "Поговорите с Хаджи-Али",
+     "id": "hadji_legend"
+    },
+    {
+     "type": "fight",
+     "text": "На обратном пути — волки",
+     "do": {
+      "hours": 20.5
+     },
+     "spawn": [
+      {
+       "at": {
+        "near": "poi:shrine_hadji",
+        "a": 140,
+        "d": 60
+       },
+       "u": "wolf",
+       "n": 4,
+       "attack": true
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m07"
+   ],
+   "start": "poi:shrine_hadji",
+   "hint": "Святилище-зиярат в верховьях Самура",
+   "reward": {
+    "xp": 250,
+    "chronicle": [
+     "sarir",
+     "peacock_throne"
+    ]
+   }
+  },
+  {
+   "id": "m09",
+   "n": 9,
+   "title": "Первая реликвия",
+   "act": 1,
+   "desc": "«Подлокотник льва» спрятан в пещере у Самура. Отряд перебежчика идёт туда же.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": {
+      "near": "poi:cave_relic1",
+      "a": 0,
+      "d": 70
+     },
+     "r": 20,
+     "text": "Скачите к пещере над Самуром"
+    },
+    {
+     "type": "collect",
+     "at": "poi:cave_relic1",
+     "relic": 1,
+     "race": 210,
+     "label": "Взять «Подлокотник льва»",
+     "checkpoint": true,
+     "text": "Найдите реликвию раньше персов",
+     "onFail": "continue",
+     "failText": "Персидский отряд вынес реликвию из пещеры…",
+     "rival": [
+      {
+       "at": {
+        "near": "poi:cave_relic1",
+        "a": 90,
+        "d": 300
+       },
+       "g": [
+        [
+         "defector",
+         1
+        ],
+        [
+         "sarbaz",
+         3
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "type": "fight",
+     "text": "Разделайтесь с отрядом перебежчика",
+     "target": "rival"
+    },
+    {
+     "type": "dialog",
+     "if": {
+      "relic": {
+       "1": "player"
+      }
+     },
+     "lines": [
+      [
+       "narrator",
+       "Бронзовая лапа льва, потемневшая от веков. Когда вы касаетесь её, перед глазами встаёт видение: зал с колоннами и люди всех гор, сидящие в одном круге."
+      ]
+     ]
+    }
+   ],
+   "req": [
+    "m08"
+   ],
+   "start": "poi:shrine_hadji",
+   "hint": "Хаджи-Али укажет путь к пещере",
+   "reward": {
+    "xp": 350,
+    "coins": 20
+   }
+  },
+  {
+   "id": "m10",
+   "n": 10,
+   "title": "Перевал",
+   "act": 1,
+   "desc": "Удержите перевал над Самуром, пока беженцы уходят на юг.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "rutul_pass_guard",
+     "at": "poi:pass_samur",
+     "name": "Старшина рутульских копейщиков",
+     "lines": [
+      [
+       "rutul_pass_guard",
+       "Конница шаха идёт сюда. Наши копья — против их коней, твои пули — против их стрелков."
+      ],
+      [
+       "rutul_pass_guard",
+       "Продержимся, пока последний вьюк не уйдёт за гребень."
+      ]
+     ]
+    },
+    {
+     "type": "fight",
+     "at": "poi:pass_samur",
+     "time": 170,
+     "text": "Удержите перевал",
+     "checkpoint": true,
+     "leash": {
+      "r": 140
+     },
+     "allies": [
+      {
+       "at": "poi:pass_samur",
+       "u": "rutul_pass_guard",
+       "n": 3
+      },
+      {
+       "at": "poi:pass_samur",
+       "u": "militia_rifle",
+       "n": 2
+      }
+     ],
+     "waves": [
+      {
+       "t": 4,
+       "say": "Конница!",
+       "spawn": [
+        {
+         "at": {
+          "near": "poi:pass_samur",
+          "a": 90,
+          "d": 170
+         },
+         "g": [
+          [
+           "light_cav",
+           4
+          ]
+         ],
+         "to": "poi:pass_samur"
+        }
+       ]
+      },
+      {
+       "t": 55,
+       "say": "Шахская гвардия!",
+       "spawn": [
+        {
+         "at": {
+          "near": "poi:pass_samur",
+          "a": 100,
+          "d": 190
+         },
+         "g": [
+          [
+           "guard_cav",
+           2
+          ],
+          [
+           "light_cav",
+           2
+          ]
+         ],
+         "to": "poi:pass_samur"
+        }
+       ]
+      },
+      {
+       "t": 110,
+       "say": "Пехота поднимается по склону!",
+       "spawn": [
+        {
+         "at": {
+          "near": "poi:pass_samur",
+          "a": 70,
+          "d": 170
+         },
+         "g": [
+          [
+           "officer",
+           1
+          ],
+          [
+           "sarbaz",
+           3
+          ],
+          [
+           "jazayerchi",
+           2
+          ]
+         ],
+         "to": "poi:pass_samur"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m09"
+   ],
+   "start": "poi:pass_samur",
+   "hint": "Перевал над Самуром",
+   "reward": {
+    "xp": 400,
+    "coins": 40,
+    "rep": {
+     "rutul": 15,
+     "lezgin": 10
+    },
+    "chronicle": [
+     "mountain_war"
+    ]
+   }
+  },
+  {
+   "id": "m11",
+   "n": 11,
+   "title": "Поединок у реки",
+   "act": 1,
+   "desc": "У брода через Самур отряд персов требует поединка: победите поборника — и вас пропустят.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": "poi:river_ford",
+     "r": 25,
+     "text": "Подъезжайте к броду"
+    },
+    {
+     "type": "dialog",
+     "lines": [
+      [
+       "officer",
+       "Горец! У нас обычай: пусть лучший из твоих сразится с нашим пахлеваном. Победишь — пройдёте. Проиграешь — сложите оружие."
+      ],
+      [
+       "hero",
+       "Я сам выйду. Пусть твои люди держат слово."
+      ]
+     ],
+     "do": {}
+    },
+    {
+     "type": "fight",
+     "at": "poi:river_ford",
+     "target": "boss",
+     "text": "Победите персидского поборника",
+     "checkpoint": true,
+     "spawn": [
+      {
+       "at": {
+        "near": "poi:river_ford",
+        "a": 0,
+        "d": 25
+       },
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         4
+        ]
+       ],
+       "team": "neutral",
+       "tag": "watch",
+       "state": "idle"
+      },
+      {
+       "at": {
+        "near": "poi:river_ford",
+        "a": 0,
+        "d": 12
+       },
+       "u": "champion",
+       "tag": "boss",
+       "boss": true,
+       "attack": true
+      }
+     ]
+    },
+    {
+     "type": "dialog",
+     "lines": [
+      [
+       "officer",
+       "Аллах свидетель — бой был честным. Проходите."
+      ],
+      [
+       "narrator",
+       "Персы расступаются. Слово, данное у реки, держат даже враги."
+      ]
+     ]
+    }
+   ],
+   "req": [
+    "m10"
+   ],
+   "start": "poi:river_ford",
+   "hint": "Брод на Самуре",
+   "reward": {
+    "xp": 400,
+    "coins": 60,
+    "weapons": [
+     "shashka"
+    ],
+    "chronicle": [
+     "duels"
+    ]
+   }
+  },
+  {
+   "id": "m12",
+   "n": 12,
+   "title": "Предательство",
+   "act": 1,
+   "desc": "Реликвию спрятали у табасаранцев. О тайнике знал только один человек кроме вас — Ахмед.",
+   "steps": [
+    {
+     "type": "cutscene",
+     "id": "betrayal1"
+    },
+    {
+     "type": "goto",
+     "at": {
+      "near": "village:khuchni",
+      "a": 200,
+      "d": 160
+     },
+     "r": 15,
+     "text": "Скачите к тайнику у Хучни"
+    },
+    {
+     "type": "chase",
+     "text": "Догоните Ахмеда!",
+     "checkpoint": true,
+     "limit": 90,
+     "catchable": false,
+     "invulnerable": true,
+     "who": {
+      "at": {
+       "near": "village:khuchni",
+       "a": 200,
+       "d": 175
+      },
+      "u": "ahmed",
+      "team": "persian",
+      "title": "Ахмед"
+     },
+     "path": {
+      "road": [
+       {
+        "near": "village:khuchni",
+        "a": 200,
+        "d": 175
+       },
+       "node:derbent_gate"
+      ]
+     },
+     "spawn": [
+      {
+       "at": {
+        "near": "village:khuchni",
+        "a": 200,
+        "d": 190
+       },
+       "g": [
+        [
+         "light_cav",
+         3
+        ]
+       ],
+       "attack": true
+      }
+     ],
+     "onEscape": {
+      "relic": {
+       "1": "persian"
+      }
+     }
+    },
+    {
+     "type": "cutscene",
+     "id": "betrayal2"
+    }
+   ],
+   "req": [
+    "m11"
+   ],
+   "start": "village:khuchni:square",
+   "hint": "Вернитесь в Хучни",
+   "reward": {
+    "xp": 300
+   },
+   "done": {
+    "regions": {
+     "tabasaran": "persian",
+     "samur": "persian"
+    },
+    "villages": {
+     "khuchni": "persian",
+     "akhty": "persian"
+    },
+    "outposts": {
+     "op_tabasaran_road": "active",
+     "op_samur_mouth": "active"
+    },
+    "relic": {
+     "1": "persian"
+    },
+    "chronicle": [
+     "ibrahim_khan"
+    ],
+    "subtitle": "<b>Конец I акта.</b> Южный Дагестан под рукой шаха."
+   }
+  },
+  {
+   "id": "m13",
+   "n": 13,
+   "title": "Дорога на Кумух",
+   "act": 2,
+   "desc": "Август 1741. Шах идёт на Казикумух. Проведите подкрепление из Акуши в крепость Сурхай-хана.",
+   "steps": [
+    {
+     "type": "cutscene",
+     "id": "act2"
+    },
+    {
+     "type": "escort",
+     "checkpoint": true,
+     "text": "Проведите акушинцев в Кумух",
+     "path": {
+      "road": [
+       "village:akusha:square",
+       "village:kumukh:square"
+      ]
+     },
+     "mode": "run",
+     "wait": 40,
+     "who": [
+      {
+       "at": "village:akusha:square",
+       "u": "militia_rifle",
+       "n": 4,
+       "fight": true
+      },
+      {
+       "at": "village:akusha:square",
+       "u": "militia_saber",
+       "n": 3,
+       "fight": true
+      }
+     ],
+     "ambush": [
+      {
+       "at": 0.45,
+       "say": "Персидский заслон на тропе!",
+       "spawn": [
+        {
+         "at": "player",
+         "g": [
+          [
+           "officer",
+           1
+          ],
+          [
+           "sarbaz",
+           3
+          ],
+          [
+           "jazayerchi",
+           1
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "at": 0.8,
+       "spawn": [
+        {
+         "at": "player",
+         "g": [
+          [
+           "light_cav",
+           3
+          ]
+         ]
+        }
+       ],
+       "side": -0.8
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m12"
+   ],
+   "start": "village:akusha:square",
+   "hint": "Ополчение собирается в Акуше",
+   "set": {
+    "act": 2
+   },
+   "reward": {
+    "xp": 350,
+    "rep": {
+     "dargin": 10,
+     "lak": 10
+    },
+    "chronicle": [
+     "kazikumukh"
+    ]
+   }
+  },
+  {
+   "id": "m14",
+   "n": 14,
+   "title": "Стены Кумуха",
+   "act": 2,
+   "desc": "Шах осадил Кумух. Держите стены, тушите пожары, заделывайте проломы.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "surkhay",
+     "at": "village:kumukh:mosque",
+     "name": "Сурхай-хан",
+     "lines": [
+      [
+       "surkhay",
+       "Я старик, но Кумух не отдам без боя. Их пушки бьют по стенам с рассвета."
+      ],
+      [
+       "surkhay",
+       "Твои люди — на восточную сторону. Если загорятся дома — туши, иначе пожар сделает работу за шаха."
+      ]
+     ]
+    },
+    {
+     "type": "fight",
+     "at": "village:kumukh",
+     "time": 130,
+     "text": "Отбивайте штурм",
+     "checkpoint": true,
+     "leash": {
+      "r": 180
+     },
+     "allies": [
+      {
+       "at": "village:kumukh:square",
+       "u": "surkhay_guard",
+       "n": 2
+      },
+      {
+       "at": "village:kumukh:square",
+       "u": "militia_rifle",
+       "n": 4
+      }
+     ],
+     "waves": [
+      {
+       "t": 3,
+       "spawn": [
+        {
+         "at": {
+          "near": "village:kumukh",
+          "a": 0,
+          "d": 160
+         },
+         "g": [
+          [
+           "officer",
+           1
+          ],
+          [
+           "sarbaz",
+           4
+          ],
+          [
+           "jazayerchi",
+           2
+          ]
+         ],
+         "to": "village:kumukh:square"
+        }
+       ]
+      },
+      {
+       "t": 60,
+       "say": "Новая волна у северной стены!",
+       "spawn": [
+        {
+         "at": {
+          "near": "village:kumukh",
+          "a": 300,
+          "d": 160
+         },
+         "g": [
+          [
+           "sarbaz",
+           4
+          ],
+          [
+           "jazayerchi",
+           2
+          ]
+         ],
+         "to": "village:kumukh:square"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "interact",
+     "text": "Потушите пожары",
+     "limit": 120,
+     "limitFail": "огонь охватил квартал",
+     "points": [
+      {
+       "at": "village:kumukh:house:2",
+       "label": "Потушить пожар",
+       "fx": "douse",
+       "smoke": true
+      },
+      {
+       "at": "village:kumukh:house:7",
+       "label": "Потушить пожар",
+       "fx": "douse",
+       "smoke": true
+      },
+      {
+       "at": "village:kumukh:house:12",
+       "label": "Потушить пожар",
+       "fx": "douse",
+       "smoke": true
+      }
+     ]
+    },
+    {
+     "type": "fight",
+     "at": "village:kumukh:edge:0",
+     "text": "Заделайте пролом и отбросьте штурмующих",
+     "points": [
+      {
+       "at": "village:kumukh:edge:0",
+       "label": "Заложить пролом камнями",
+       "say": "Камни и брёвна ложатся в пролом."
+      }
+     ],
+     "spawn": [
+      {
+       "at": {
+        "near": "village:kumukh",
+        "a": 0,
+        "d": 120
+       },
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "guard_foot",
+         2
+        ],
+        [
+         "sarbaz",
+         3
+        ]
+       ],
+       "to": "village:kumukh:edge:0",
+       "attack": true
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m13"
+   ],
+   "start": "village:kumukh:mosque",
+   "hint": "Сурхай-хан в Кумухе",
+   "reward": {
+    "xp": 450,
+    "coins": 50,
+    "rep": {
+     "lak": 15
+    }
+   }
+  },
+  {
+   "id": "m15",
+   "n": 15,
+   "title": "Подземный ход",
+   "act": 2,
+   "desc": "Кумух не устоит. Выведите семью хана через подземный ход.",
+   "steps": [
+    {
+     "type": "escort",
+     "checkpoint": true,
+     "text": "Выведите семью хана подземным ходом в Ури",
+     "path": [
+      "village:kumukh:mosque",
+      "poi:kumukh_tunnel",
+      "village:uri:square"
+     ],
+     "mode": "run",
+     "wait": 30,
+     "who": [
+      {
+       "at": "village:kumukh:mosque",
+       "u": "villager_f",
+       "n": 3,
+       "title": "Женщина из ханского дома"
+      },
+      {
+       "at": "village:kumukh:mosque",
+       "u": "surkhay_guard",
+       "n": 2,
+       "fight": true,
+       "mounted": false
+      }
+     ],
+     "ambush": [
+      {
+       "at": 0.6,
+       "say": "Их заметили у выхода из хода!",
+       "spawn": [
+        {
+         "at": "player",
+         "g": [
+          [
+           "sarbaz",
+           3
+          ],
+          [
+           "light_cav",
+           1
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m14"
+   ],
+   "start": "village:kumukh:mosque",
+   "hint": "Семья хана ждёт у мечети",
+   "reward": {
+    "xp": 350,
+    "rep": {
+     "lak": 15
+    },
+    "chronicle": [
+     "kumukh_tunnel"
+    ]
+   }
+  },
+  {
+   "id": "m16",
+   "n": 16,
+   "title": "Лютф-Али-хан",
+   "act": 2,
+   "desc": "У ворот Кумуха — сам Лютф-Али-хан. Задержите его, пока отряд уходит.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": "village:kumukh:edge:0",
+     "target": "boss",
+     "text": "Сразитесь с Лютф-Али-ханом",
+     "checkpoint": true,
+     "allies": [
+      {
+       "at": "village:kumukh:square",
+       "u": "surkhay_guard",
+       "n": 3
+      },
+      {
+       "at": "village:kumukh:square",
+       "u": "militia_saber",
+       "n": 3
+      }
+     ],
+     "spawn": [
+      {
+       "at": {
+        "near": "village:kumukh",
+        "a": 0,
+        "d": 70
+       },
+       "u": "lutf_ali",
+       "tag": "boss",
+       "boss": true,
+       "attack": true
+      },
+      {
+       "at": {
+        "near": "village:kumukh",
+        "a": 0,
+        "d": 80
+       },
+       "g": [
+        [
+         "guard_foot",
+         2
+        ],
+        [
+         "officer",
+         1
+        ]
+       ],
+       "attack": true
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m15"
+   ],
+   "start": "village:kumukh:edge:0",
+   "hint": "Ворота Кумуха",
+   "reward": {
+    "xp": 600,
+    "coins": 100,
+    "chronicle": [
+     "lutf_ali"
+    ]
+   }
+  },
+  {
+   "id": "m17",
+   "n": 17,
+   "title": "Плен",
+   "act": 2,
+   "desc": "Победа у ворот не спасла город.",
+   "steps": [
+    {
+     "type": "cutscene",
+     "id": "capture",
+     "do": {
+      "hp": 0.3,
+      "hours": 18.5
+     }
+    },
+    {
+     "type": "ride",
+     "at": "village:akusha:square",
+     "r": 20,
+     "text": "Уходите от погони в Акушу",
+     "spawn": [
+      {
+       "at": {
+        "near": "player",
+        "a": 180,
+        "d": 60
+       },
+       "g": [
+        [
+         "light_cav",
+         3
+        ]
+       ],
+       "attack": true
+      }
+     ]
+    },
+    {
+     "type": "dialog",
+     "lines": [
+      [
+       "narrator",
+       "Кумух пал. Сурхай-хан и Патимат — в плену. Вы чудом ушли живым."
+      ],
+      [
+       "murtazali",
+       "Я Муртазали, сын Сурхая. Отец в цепях, но горы ещё не взяты. Встань, воин, — ты мне нужен."
+      ]
+     ]
+    }
+   ],
+   "req": [
+    "m16"
+   ],
+   "auto": true,
+   "linear": true,
+   "reward": {
+    "xp": 200
+   },
+   "done": {
+    "regions": {
+     "lakia": "persian"
+    },
+    "villages": {
+     "kumukh": "persian"
+    },
+    "set": {
+     "patimat_captive": true
+    },
+    "chronicle": [
+     "kumukh_fall"
+    ]
+   }
+  },
+  {
+   "id": "m18",
+   "n": 18,
+   "title": "Кузни Кубачи",
+   "act": 2,
+   "desc": "Ополчению нужны сабли и кольчуги. Кубачинские мастера готовы ковать — если их защитят.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "smith",
+     "at": "village:kubachi:square",
+     "name": "Мастер-кубачинец",
+     "lines": [
+      [
+       "smith",
+       "Железо есть, руки есть. Нет времени: шахские фуражиры рыщут у Кубачи, грозят сжечь кузни."
+      ],
+      [
+       "smith",
+       "Продержись, пока мы куём. Кольчуга для тебя — первая с наковальни."
+      ]
+     ]
+    },
+    {
+     "type": "fight",
+     "at": "village:kubachi",
+     "time": 150,
+     "text": "Защитите мастеров, пока они куют",
+     "checkpoint": true,
+     "protect": "masters",
+     "protectFail": "мастера погибли",
+     "leash": {
+      "r": 160
+     },
+     "allies": [
+      {
+       "at": "village:kubachi:square",
+       "u": "smith",
+       "n": 2,
+       "tag": "masters",
+       "state": "idle"
+      },
+      {
+       "at": "village:kubachi:square",
+       "u": "kubachi_mailed",
+       "n": 2
+      }
+     ],
+     "waves": [
+      {
+       "t": 5,
+       "spawn": [
+        {
+         "at": {
+          "near": "village:kubachi",
+          "a": 90,
+          "d": 150
+         },
+         "g": [
+          [
+           "forager",
+           3
+          ],
+          [
+           "sarbaz",
+           2
+          ]
+         ],
+         "to": "village:kubachi:square"
+        }
+       ]
+      },
+      {
+       "t": 70,
+       "spawn": [
+        {
+         "at": {
+          "near": "village:kubachi",
+          "a": 240,
+          "d": 160
+         },
+         "g": [
+          [
+           "officer",
+           1
+          ],
+          [
+           "sarbaz",
+           3
+          ],
+          [
+           "light_cav",
+           2
+          ]
+         ],
+         "to": "village:kubachi:square"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m17"
+   ],
+   "start": "village:kubachi:square",
+   "hint": "Кузни Кубачи",
+   "reward": {
+    "xp": 400,
+    "armor": "mail",
+    "weapons": [
+     "kinjal_kubachi"
+    ],
+    "give": {
+     "iron": 5
+    },
+    "rep": {
+     "dargin": 15
+    },
+    "chronicle": [
+     "kubachi"
+    ]
+   }
+  },
+  {
+   "id": "m19",
+   "n": 19,
+   "title": "Вторая реликвия",
+   "act": 2,
+   "desc": "Башня орнаментов у Кубачи хранит «Спинку с орнаментом». Чтобы открыть тайник, нужно прочесть узоры.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": "poi:tower_kubachi",
+     "r": 15,
+     "text": "Доберитесь до Башни орнаментов"
+    },
+    {
+     "type": "talk",
+     "who": "smith",
+     "at": {
+      "near": "poi:tower_kubachi",
+      "a": 60,
+      "d": 6
+     },
+     "name": "Старый гравёр",
+     "id": "riddle1"
+    },
+    {
+     "type": "interact",
+     "text": "Поверните камни с орнаментами в верном порядке",
+     "points": [
+      {
+       "at": {
+        "near": "poi:tower_kubachi",
+        "a": 0,
+        "d": 5
+       },
+       "label": "Повернуть камень с «древом жизни»"
+      },
+      {
+       "at": {
+        "near": "poi:tower_kubachi",
+        "a": 120,
+        "d": 5
+       },
+       "label": "Повернуть камень с «солнцем»"
+      },
+      {
+       "at": {
+        "near": "poi:tower_kubachi",
+        "a": 240,
+        "d": 5
+       },
+       "label": "Повернуть камень с «барсом»"
+      }
+     ]
+    },
+    {
+     "type": "collect",
+     "at": {
+      "near": "poi:tower_kubachi",
+      "a": 180,
+      "d": 3
+     },
+     "relic": 2,
+     "race": 150,
+     "label": "Достать «Спинку с орнаментом»",
+     "text": "Тайник открыт — забирайте реликвию, пока не подошёл отряд",
+     "onFail": "continue",
+     "rival": [
+      {
+       "at": {
+        "near": "poi:tower_kubachi",
+        "a": 300,
+        "d": 230
+       },
+       "g": [
+        [
+         "defector",
+         1
+        ],
+        [
+         "sarbaz",
+         2
+        ],
+        [
+         "jazayerchi",
+         1
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "type": "fight",
+     "text": "Отбейтесь от отряда",
+     "target": "rival"
+    }
+   ],
+   "req": [
+    "m18"
+   ],
+   "start": "poi:tower_kubachi",
+   "hint": "Башня орнаментов над Кубачи",
+   "reward": {
+    "xp": 400,
+    "chronicle": [
+     "ornaments"
+    ]
+   }
+  },
+  {
+   "id": "m20",
+   "n": 20,
+   "title": "Совет джамаатов",
+   "act": 2,
+   "desc": "Муртазали созывает народы в Андалал. Нужно убедить хотя бы пятерых прислать ополчение.",
+   "steps": [
+    {
+     "type": "cutscene",
+     "id": "council"
+    },
+    {
+     "type": "unity",
+     "n": 5,
+     "text": "Убедите старейшин народов (побочные задания у старейшин)"
+    },
+    {
+     "type": "talk",
+     "who": "murtazali",
+     "at": "village:sogratl:square",
+     "name": "Муртазали",
+     "text": "Вернитесь к Муртазали в Согратль",
+     "lines": [
+      [
+       "murtazali",
+       "{unity} народов! Такого не видели со времён старых царей."
+      ],
+      [
+       "murtazali",
+       "Шах ставит лагерь на Турчидаге. Мы пошлём к нему послов — пусть знает, что горы говорят одним голосом."
+      ]
+     ]
+    }
+   ],
+   "req": [
+    "m19"
+   ],
+   "start": "village:akusha:square",
+   "hint": "Муртазали ждёт в Акуше",
+   "wait": "Помогите народам — у каждого старейшины есть поручения",
+   "reward": {
+    "xp": 500,
+    "chronicle": [
+     "unity_day"
+    ]
+   }
+  },
+  {
+   "id": "m21",
+   "n": 21,
+   "title": "Посольство",
+   "act": 3,
+   "desc": "Сентябрь 1741. Сопроводите посла андалальцев к шатру шаха на Турчидаге.",
+   "steps": [
+    {
+     "type": "cutscene",
+     "id": "act3",
+     "do": {
+      "camp": "turchidag"
+     }
+    },
+    {
+     "type": "escort",
+     "text": "Сопроводите посла к лагерю шаха",
+     "mode": "walk",
+     "wait": 25,
+     "path": [
+      "village:sogratl:edge:220",
+      "turchidag:0:110"
+     ],
+     "who": [
+      {
+       "at": "village:sogratl:edge:220",
+       "u": "elder",
+       "title": "Посол Андалала"
+      }
+     ]
+    },
+    {
+     "type": "cutscene",
+     "id": "embassy"
+    },
+    {
+     "type": "fight",
+     "text": "Пробейтесь обратно к Согратлю",
+     "count": 6,
+     "checkpoint": true,
+     "spawn": [
+      {
+       "at": "turchidag:0:70",
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         4
+        ],
+        [
+         "jazayerchi",
+         2
+        ]
+       ],
+       "attack": true
+      },
+      {
+       "at": "turchidag:40:120",
+       "g": [
+        [
+         "light_cav",
+         3
+        ]
+       ],
+       "attack": true
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m20"
+   ],
+   "start": "village:sogratl:square",
+   "hint": "Посол ждёт в Согратле",
+   "set": {
+    "act": 3
+   },
+   "reward": {
+    "xp": 400,
+    "chronicle": [
+     "turchidag"
+    ]
+   }
+  },
+  {
+   "id": "m22",
+   "n": 22,
+   "title": "Ночь на Турчидаге",
+   "act": 3,
+   "desc": "Ночью проберитесь в лагерь шаха и узнайте, где держат пленных.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": "turchidag:200:150",
+     "r": 15,
+     "text": "Подойдите к лагерю с юга",
+     "do": {
+      "hours": 23.2,
+      "weather": "fog"
+     }
+    },
+    {
+     "type": "interact",
+     "stealth": true,
+     "lives": 2,
+     "checkpoint": true,
+     "text": "Обыщите шатры, не поднимая тревоги",
+     "points": [
+      {
+       "at": "turchidag:150:40",
+       "r": 3,
+       "label": "Заглянуть в шатёр"
+      },
+      {
+       "at": "turchidag:220:55",
+       "r": 3,
+       "label": "Заглянуть в шатёр"
+      },
+      {
+       "at": "turchidag:280:45",
+       "r": 3,
+       "label": "Подслушать часовых",
+       "say": "«…девчонку-лучницу держат у коновязи, утром повезут к шаху»."
+      }
+     ]
+    },
+    {
+     "type": "goto",
+     "at": "turchidag:200:150",
+     "r": 15,
+     "text": "Уходите из лагеря",
+     "stealth": true,
+     "lives": 2
+    }
+   ],
+   "req": [
+    "m21"
+   ],
+   "start": "village:sogratl:square",
+   "hint": "Готовьтесь к ночной вылазке в Согратле",
+   "reward": {
+    "xp": 400
+   }
+  },
+  {
+   "id": "m23",
+   "n": 23,
+   "title": "Спасти Патимат",
+   "act": 3,
+   "desc": "Патимат держат у коновязи на Турчидаге. Утром её увезут к шаху.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": "turchidag:300:100",
+     "r": 15,
+     "text": "Подкрадитесь к коновязи",
+     "do": {
+      "hours": 4.5
+     }
+    },
+    {
+     "type": "interact",
+     "stealth": true,
+     "lives": 3,
+     "text": "Перережьте верёвки Патимат",
+     "checkpoint": true,
+     "points": [
+      {
+       "at": "turchidag:270:48",
+       "r": 2.5,
+       "label": "Перерезать верёвки",
+       "say": "Патимат: «Я знала, что ты придёшь. Коней — и бежим!»"
+      }
+     ]
+    },
+    {
+     "type": "ride",
+     "at": "village:sogratl:square",
+     "r": 20,
+     "text": "Скачите в Согратль под огнём",
+     "do": {
+      "set": {
+       "patimat_captive": false
+      }
+     },
+     "spawn": [
+      {
+       "at": "turchidag:270:50",
+       "u": "patimat",
+       "follow": true,
+       "essential": true,
+       "tag": "hero_ally"
+      },
+      {
+       "at": "turchidag:240:70",
+       "g": [
+        [
+         "light_cav",
+         4
+        ]
+       ],
+       "attack": true
+      },
+      {
+       "at": "turchidag:300:70",
+       "g": [
+        [
+         "guard_cav",
+         2
+        ]
+       ],
+       "attack": true
+      }
+     ]
+    },
+    {
+     "type": "dialog",
+     "lines": [
+      [
+       "patimat",
+       "Сурхай-хана увезли в Дербент. Но я видела их лагерь изнутри: пушки, обоз, ставка — всё у меня в голове."
+      ],
+      [
+       "patimat",
+       "И ещё. Ахмед был там. Он отвернулся, когда меня вели мимо."
+      ]
+     ]
+    }
+   ],
+   "req": [
+    "m22"
+   ],
+   "start": "village:sogratl:square",
+   "hint": "Согратль",
+   "reward": {
+    "xp": 600,
+    "chronicle": [
+     "patimat"
+    ]
+   }
+  },
+  {
+   "id": "m24",
+   "n": 24,
+   "title": "Согратль держится",
+   "act": 3,
+   "desc": "Персы штурмуют Согратль. Стреляйте с крыш, держите террасы.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": "village:sogratl",
+     "time": 220,
+     "text": "Удержите Согратль",
+     "checkpoint": true,
+     "leash": {
+      "r": 180
+     },
+     "allies": [
+      {
+       "at": "village:sogratl:square",
+       "u": "andalal_marksman",
+       "n": 4
+      },
+      {
+       "at": "village:sogratl:square",
+       "u": "militia_rifle",
+       "n": 3
+      },
+      {
+       "at": "village:sogratl:square",
+       "u": "patimat",
+       "follow": true,
+       "essential": true,
+       "tag": "hero_ally"
+      }
+     ],
+     "waves": [
+      {
+       "t": 3,
+       "spawn": [
+        {
+         "at": {
+          "near": "village:sogratl",
+          "a": 30,
+          "d": 170
+         },
+         "g": [
+          [
+           "officer",
+           1
+          ],
+          [
+           "sarbaz",
+           4
+          ],
+          [
+           "jazayerchi",
+           2
+          ]
+         ],
+         "to": "village:sogratl:square"
+        }
+       ]
+      },
+      {
+       "t": 70,
+       "say": "Замбураки бьют с гребня!",
+       "spawn": [
+        {
+         "at": {
+          "near": "village:sogratl",
+          "a": 60,
+          "d": 150
+         },
+         "g": [
+          [
+           "zamburakchi",
+           1
+          ],
+          [
+           "sarbaz",
+           3
+          ]
+         ],
+         "to": "village:sogratl:square"
+        }
+       ]
+      },
+      {
+       "t": 140,
+       "say": "Гвардия идёт по террасам!",
+       "spawn": [
+        {
+         "at": {
+          "near": "village:sogratl",
+          "a": 0,
+          "d": 160
+         },
+         "g": [
+          [
+           "officer",
+           1
+          ],
+          [
+           "guard_foot",
+           3
+          ],
+          [
+           "jazayerchi",
+           2
+          ]
+         ],
+         "to": "village:sogratl:square"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m23"
+   ],
+   "start": "village:sogratl:square",
+   "hint": "Согратль",
+   "reward": {
+    "xp": 600,
+    "rep": {
+     "avar": 20
+    },
+    "chronicle": [
+     "sogratl"
+    ]
+   }
+  },
+  {
+   "id": "m25",
+   "n": 25,
+   "title": "Камни Чоха",
+   "act": 3,
+   "desc": "Персидская колонна поднимается к Чоху по узкой тропе. Обрушьте на неё скалы.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "andalal_marksman",
+     "at": "village:chokh:square",
+     "name": "Чохский старшина",
+     "lines": [
+      [
+       "andalal_marksman",
+       "Над тропой лежат валуны, мы подпёрли их брёвнами. Выбьешь подпорки, когда колонна будет внизу."
+      ]
+     ]
+    },
+    {
+     "type": "fight",
+     "text": "Обрушьте камни на колонну и добейте уцелевших",
+     "checkpoint": true,
+     "points": [
+      {
+       "at": {
+        "near": "village:chokh",
+        "a": 150,
+        "d": 120
+       },
+       "label": "Выбить подпорки",
+       "fx": "rockfall",
+       "target": {
+        "near": "village:chokh",
+        "a": 150,
+        "d": 160
+       }
+      },
+      {
+       "at": {
+        "near": "village:chokh",
+        "a": 190,
+        "d": 120
+       },
+       "label": "Выбить подпорки",
+       "fx": "rockfall",
+       "target": {
+        "near": "village:chokh",
+        "a": 190,
+        "d": 165
+       }
+      }
+     ],
+     "spawn": [
+      {
+       "at": {
+        "near": "village:chokh",
+        "a": 170,
+        "d": 300
+       },
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         5
+        ],
+        [
+         "jazayerchi",
+         3
+        ]
+       ],
+       "mode": "walk",
+       "path": [
+        {
+         "near": "village:chokh",
+         "a": 170,
+         "d": 260
+        },
+        {
+         "near": "village:chokh",
+         "a": 170,
+         "d": 160
+        },
+        "village:chokh:square"
+       ]
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m24"
+   ],
+   "start": "village:chokh:square",
+   "hint": "Чох",
+   "reward": {
+    "xp": 500,
+    "chronicle": [
+     "chokh"
+    ]
+   }
+  },
+  {
+   "id": "m26",
+   "n": 26,
+   "title": "Аймакинское ущелье",
+   "act": 3,
+   "desc": "Вторая колонна Гайдар-бека идёт через Аймакинское ущелье. Засада — здесь.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "akhmed_utsmiy",
+     "at": "aimaki:0",
+     "name": "Ахмед-хан, уцмий Кайтага",
+     "lines": [
+      [
+       "akhmed_utsmiy",
+       "Шах шлёт мне фирманы и обещает милость. Мой ответ — здесь, в ущелье."
+      ],
+      [
+       "akhmed_utsmiy",
+       "Когда голова колонны дойдёт до поворота — бей. Мои люди на склонах."
+      ]
+     ]
+    },
+    {
+     "type": "fight",
+     "at": "aimaki:1",
+     "target": "boss",
+     "text": "Разбейте колонну, убейте Гайдар-бека",
+     "checkpoint": true,
+     "allies": [
+      {
+       "at": "aimaki:0",
+       "u": "akhmed_utsmiy",
+       "follow": true,
+       "tag": "hero_ally",
+       "essential": true
+      },
+      {
+       "at": "aimaki:0",
+       "u": "unity"
+      },
+      {
+       "at": "aimaki:0",
+       "u": "kubachi_mailed",
+       "n": 2
+      }
+     ],
+     "points": [
+      {
+       "at": {
+        "near": "aimaki:1",
+        "a": 90,
+        "d": 30
+       },
+       "label": "Обрушить склон",
+       "fx": "rockfall",
+       "target": "aimaki:1"
+      },
+      {
+       "at": {
+        "near": "aimaki:2",
+        "a": 90,
+        "d": 30
+       },
+       "label": "Обрушить склон",
+       "fx": "rockfall",
+       "target": "aimaki:2"
+      }
+     ],
+     "spawn": [
+      {
+       "at": "aimaki:3",
+       "u": "haydar_bek",
+       "tag": "boss",
+       "boss": true,
+       "path": [
+        "aimaki:2",
+        "aimaki:1",
+        "aimaki:0"
+       ],
+       "mode": "walk"
+      },
+      {
+       "at": "aimaki:3",
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         5
+        ],
+        [
+         "jazayerchi",
+         2
+        ],
+        [
+         "guard_cav",
+         2
+        ]
+       ],
+       "path": [
+        "aimaki:2",
+        "aimaki:1",
+        "aimaki:0"
+       ],
+       "mode": "walk",
+       "scaleByRelics": true
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m25"
+   ],
+   "start": "aimaki:0",
+   "hint": "Северный вход в Аймакинское ущелье",
+   "reward": {
+    "xp": 800,
+    "coins": 120,
+    "rep": {
+     "dargin": 15
+    },
+    "chronicle": [
+     "aimaki",
+     "akhmed_utsmiy"
+    ]
+   }
+  },
+  {
+   "id": "m27",
+   "n": 27,
+   "title": "Третья реликвия",
+   "act": 3,
+   "desc": "Шахман, местный проводник шаха, ищет «Ножку-барса» на скалах над Мегебом.",
+   "steps": [
+    {
+     "type": "collect",
+     "at": "poi:megeb_cliff",
+     "relic": 3,
+     "race": 200,
+     "label": "Взять «Ножку-барса»",
+     "checkpoint": true,
+     "text": "Опередите Шахмана на скалах (у уступа — Space)",
+     "onFail": "continue",
+     "rival": [
+      {
+       "at": {
+        "near": "poi:megeb_cliff",
+        "a": 60,
+        "d": 260
+       },
+       "u": "shakhman",
+       "mode": "run",
+       "title": "Шахман"
+      },
+      {
+       "at": {
+        "near": "poi:megeb_cliff",
+        "a": 60,
+        "d": 265
+       },
+       "u": "defector",
+       "n": 2
+      }
+     ]
+    },
+    {
+     "type": "fight",
+     "text": "Шахман уходит — перебейте его людей",
+     "target": "rival",
+     "left": 1
+    },
+    {
+     "type": "dialog",
+     "lines": [
+      [
+       "patimat",
+       "Шахман… Его отец был старшиной в Мегебе. Теперь он водит персов нашими тропами."
+      ],
+      [
+       "hero",
+       "Придёт время — он ответит перед джамаатом."
+      ]
+     ]
+    }
+   ],
+   "req": [
+    "m26"
+   ],
+   "start": "village:megeb:square",
+   "hint": "Мегеб",
+   "reward": {
+    "xp": 500,
+    "chronicle": [
+     "shakhman"
+    ]
+   }
+  },
+  {
+   "id": "m28",
+   "n": 28,
+   "title": "Андалальская битва",
+   "act": 3,
+   "desc": "15 сентября 1741. Все отряды союза — против ставки шаха на Турчидаге.",
+   "steps": [
+    {
+     "type": "cutscene",
+     "id": "andalal_eve"
+    },
+    {
+     "type": "fight",
+     "at": "turchidag:0:110",
+     "count": 18,
+     "text": "Ведите крыло ополчения на лагерь",
+     "checkpoint": true,
+     "allies": [
+      {
+       "at": "village:sogratl:edge:220",
+       "u": "murtazali",
+       "follow": true,
+       "essential": true,
+       "tag": "hero_ally"
+      },
+      {
+       "at": "village:sogratl:edge:220",
+       "u": "patimat",
+       "follow": true,
+       "essential": true,
+       "tag": "hero_ally"
+      },
+      {
+       "at": "turchidag:0:150",
+       "u": "unity",
+       "n": 2,
+       "to": "turchidag:0:60",
+       "engage": 50
+      },
+      {
+       "at": "turchidag:20:150",
+       "u": "andalal_marksman",
+       "n": 4,
+       "to": "turchidag:20:80",
+       "engage": 60
+      }
+     ],
+     "spawn": [
+      {
+       "at": "turchidag:0:60",
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         6
+        ],
+        [
+         "jazayerchi",
+         4
+        ]
+       ],
+       "attack": true
+      },
+      {
+       "at": "turchidag:60:70",
+       "g": [
+        [
+         "guard_cav",
+         3
+        ],
+        [
+         "light_cav",
+         4
+        ]
+       ],
+       "attack": true,
+       "scaleByRelics": true
+      }
+     ],
+     "waves": [
+      {
+       "t": 60,
+       "say": "Гвардия шаха контратакует!",
+       "spawn": [
+        {
+         "at": "turchidag:330:60",
+         "g": [
+          [
+           "officer",
+           1
+          ],
+          [
+           "guard_foot",
+           4
+          ],
+          [
+           "jazayerchi",
+           3
+          ]
+         ],
+         "attack": true
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "fight",
+     "text": "Заклепайте пушки и сорвите шахское знамя",
+     "points": [
+      {
+       "at": "cannon:turchidag:0",
+       "label": "Заклепать пушку",
+       "fx": "spike"
+      },
+      {
+       "at": "cannon:turchidag:1",
+       "label": "Заклепать пушку",
+       "fx": "spike"
+      },
+      {
+       "at": "cannon:turchidag:2",
+       "label": "Заклепать пушку",
+       "fx": "spike"
+      },
+      {
+       "at": "turchidag:180:14",
+       "label": "Сорвать знамя шаха",
+       "fx": "fire",
+       "say": "Знамя Грозы Вселенной падает в грязь."
+      }
+     ],
+     "spawn": [
+      {
+       "at": "turchidag:0:20",
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "guard_foot",
+         3
+        ],
+        [
+         "sarbaz",
+         3
+        ]
+       ],
+       "attack": true
+      }
+     ],
+     "left": 99
+    },
+    {
+     "type": "cutscene",
+     "id": "shah_retreats"
+    }
+   ],
+   "req": [
+    "m27"
+   ],
+   "start": "village:sogratl:square",
+   "hint": "Войско собирается у Согратля",
+   "cond": {
+    "unity": 5
+   },
+   "reward": {
+    "xp": 1200,
+    "coins": 150
+   },
+   "done": {
+    "breakCamp": "turchidag",
+    "regions": {
+     "andalal": "highlanders"
+    },
+    "chronicle": [
+     "andalal_battle"
+    ]
+   }
+  },
+  {
+   "id": "m29",
+   "n": 29,
+   "title": "Погоня",
+   "act": 3,
+   "desc": "Шах отступает. Муртазали ведёт конницу следом — до самого Дербента.",
+   "steps": [
+    {
+     "type": "ride",
+     "at": "village:kumukh:square",
+     "r": 30,
+     "text": "Скачите с Муртазали к Кумуху",
+     "spawn": [
+      {
+       "at": "player",
+       "u": "murtazali",
+       "follow": true,
+       "essential": true,
+       "tag": "hero_ally"
+      },
+      {
+       "at": "player",
+       "u": "surkhay_guard",
+       "n": 3,
+       "follow": true
+      }
+     ]
+    },
+    {
+     "type": "fight",
+     "at": "village:kumukh",
+     "text": "Выбейте персидский гарнизон из Кумуха",
+     "checkpoint": true,
+     "do": {
+      "villages": {
+       "kumukh": "highlanders"
+      }
+     },
+     "spawn": [
+      {
+       "at": "village:kumukh:square",
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         4
+        ],
+        [
+         "jazayerchi",
+         2
+        ]
+       ],
+       "attack": true
+      }
+     ]
+    },
+    {
+     "type": "ride",
+     "at": "village:kubachi:square",
+     "r": 30,
+     "text": "Не дайте арьергарду уйти — к Кубачи",
+     "spawn": [
+      {
+       "at": "player",
+       "u": "murtazali",
+       "follow": true,
+       "essential": true,
+       "tag": "hero_ally"
+      }
+     ]
+    },
+    {
+     "type": "fight",
+     "at": {
+      "near": "village:khuchni",
+      "a": 0,
+      "d": 60
+     },
+     "text": "Разбейте арьергард у Хучни",
+     "do": {
+      "villages": {
+       "khuchni": "highlanders"
+      }
+     },
+     "spawn": [
+      {
+       "at": {
+        "near": "village:khuchni",
+        "a": 0,
+        "d": 60
+       },
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "light_cav",
+         4
+        ],
+        [
+         "sarbaz",
+         3
+        ]
+       ],
+       "attack": true
+      }
+     ]
+    },
+    {
+     "type": "ride",
+     "at": "poi:tower_derbent",
+     "r": 25,
+     "text": "Гоните персов до стен Дербента"
+    }
+   ],
+   "req": [
+    "m28"
+   ],
+   "start": "village:sogratl:square",
+   "hint": "Конница собирается в Согратле",
+   "reward": {
+    "xp": 800
+   },
+   "done": {
+    "regions": {
+     "lakia": "highlanders",
+     "dargin": "highlanders",
+     "tabasaran": "neutral"
+    },
+    "subtitle": "<b>Конец III акта.</b> Шах заперся в Дербенте. Наступает зима.",
+    "chronicle": [
+     "pursuit"
+    ]
+   }
+  },
+  {
+   "id": "m30",
+   "n": 30,
+   "title": "Зимний лагерь",
+   "act": 4,
+   "desc": "Зима 1741–1742. Сёла без хлеба не переживут осаду. Развезите зерно.",
+   "steps": [
+    {
+     "type": "cutscene",
+     "id": "act4"
+    },
+    {
+     "type": "interact",
+     "text": "Погрузите зерно в родном селе и развезите по сёлам",
+     "points": [
+      {
+       "at": "home:square",
+       "label": "Нагрузить вьюки зерном",
+       "give": {
+        "food": 6
+       }
+      },
+      {
+       "at": "nearby:1:square",
+       "label": "Передать зерно",
+       "give": {
+        "food": -2
+       },
+       "do": {
+        "rep": {
+         "home": 5
+        }
+       }
+      },
+      {
+       "at": "nearby:2:square",
+       "label": "Передать зерно",
+       "give": {
+        "food": -2
+       }
+      },
+      {
+       "at": "nearby:3:square",
+       "label": "Передать зерно",
+       "give": {
+        "food": -2
+       }
+      }
+     ]
+    },
+    {
+     "type": "fight",
+     "at": "nearby:2:edge:90",
+     "text": "Фуражиры шаха грабят амбары у {near2}",
+     "spawn": [
+      {
+       "at": "nearby:2:edge:90",
+       "g": [
+        [
+         "forager",
+         4
+        ],
+        [
+         "light_cav",
+         1
+        ]
+       ],
+       "spread": 10,
+       "state": "wander"
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m29"
+   ],
+   "start": "home:square",
+   "hint": "Родное село",
+   "set": {
+    "act": 4,
+    "season": "winter",
+    "weather": "snow"
+   },
+   "reward": {
+    "xp": 500,
+    "rep": {
+     "home": 10
+    },
+    "chronicle": [
+     "winter_war"
+    ]
+   }
+  },
+  {
+   "id": "m31",
+   "n": 31,
+   "title": "Голод в стане шаха",
+   "act": 4,
+   "desc": "Персидская армия голодает. Срывайте фуражировки на Кумыкской равнине и угоните табуны.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": {
+      "near": "village:dzhengutay",
+      "a": 30,
+      "d": 200
+     },
+     "text": "Разгоните фуражиров у Дженгутая",
+     "spawn": [
+      {
+       "at": {
+        "near": "village:dzhengutay",
+        "a": 30,
+        "d": 200
+       },
+       "g": [
+        [
+         "forager",
+         5
+        ],
+        [
+         "officer",
+         1
+        ]
+       ],
+       "spread": 14,
+       "state": "wander"
+      }
+     ]
+    },
+    {
+     "type": "fight",
+     "at": {
+      "near": "village:dzhengutay",
+      "a": 80,
+      "d": 320
+     },
+     "text": "Угоните табун персидских коней",
+     "checkpoint": true,
+     "points": [
+      {
+       "at": {
+        "near": "village:dzhengutay",
+        "a": 80,
+        "d": 320
+       },
+       "label": "Перерезать коновязь и угнать табун",
+       "say": "Сотня коней уходит в горы. Шахская конница пойдёт пешком."
+      }
+     ],
+     "spawn": [
+      {
+       "at": {
+        "near": "village:dzhengutay",
+        "a": 80,
+        "d": 330
+       },
+       "g": [
+        [
+         "light_cav",
+         3
+        ],
+        [
+         "sarbaz",
+         2
+        ]
+       ],
+       "guard": true
+      }
+     ],
+     "left": 99
+    }
+   ],
+   "req": [
+    "m30"
+   ],
+   "start": "village:dzhengutay:square",
+   "hint": "Дженгутай",
+   "reward": {
+    "xp": 600,
+    "coins": 80,
+    "give": {
+     "food": 4
+    },
+    "items": [
+     "persian_saddle"
+    ],
+    "chronicle": [
+     "famine"
+    ]
+   }
+  },
+  {
+   "id": "m32",
+   "n": 32,
+   "title": "Шамхал",
+   "act": 4,
+   "desc": "Шамхал Хасбулат поставлен шахом. Можно говорить со знатью Тарков — или ударить через Эндирей.",
+   "steps": [
+    {
+     "type": "dialog",
+     "lines": [
+      [
+       "murtazali",
+       "Хасбулат сидит в Тарках по милости шаха. Знать недовольна: шах берёт хлеб и коней, а платит фирманами."
+      ],
+      [
+       "murtazali",
+       "Решай: идти к шамхалу с переговорами — или ударить по шахским заставам у Эндирея."
+      ]
+     ],
+     "choices": [
+      {
+       "text": "Переговоры в Тарках.",
+       "choice": {
+        "shamkhal": "talks"
+       }
+      },
+      {
+       "text": "Рейд через Эндирей.",
+       "choice": {
+        "shamkhal": "raid"
+       }
+      }
+     ]
+    },
+    {
+     "type": "goto",
+     "if": {
+      "choice": {
+       "shamkhal": "talks"
+      }
+     },
+     "at": "village:tarki:square",
+     "r": 15,
+     "text": "Въезжайте в Тарки"
+    },
+    {
+     "type": "talk",
+     "if": {
+      "choice": {
+       "shamkhal": "talks"
+      }
+     },
+     "who": "khasbulat",
+     "at": "village:tarki:mosque",
+     "name": "Шамхал Хасбулат",
+     "id": "khasbulat_talk"
+    },
+    {
+     "type": "fight",
+     "if": {
+      "choice": {
+       "shamkhal": "talks"
+      }
+     },
+     "text": "Шахские надзиратели не дают знати уйти — перебейте их",
+     "spawn": [
+      {
+       "at": "village:tarki:edge:270",
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         3
+        ]
+       ],
+       "attack": true
+      }
+     ]
+    },
+    {
+     "type": "fight",
+     "if": {
+      "choice": {
+       "shamkhal": "raid"
+      }
+     },
+     "at": "outpost:op_endirey_ford",
+     "text": "Разбейте заставу у брода под Эндиреем",
+     "do": {
+      "outposts": {
+       "op_endirey_ford": "active"
+      }
+     },
+     "spawn": [
+      {
+       "at": "outpost:op_endirey_ford",
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         3
+        ],
+        [
+         "jazayerchi",
+         2
+        ]
+       ],
+       "guard": true,
+       "spread": 10
+      }
+     ]
+    },
+    {
+     "type": "fight",
+     "if": {
+      "choice": {
+       "shamkhal": "raid"
+      }
+     },
+     "at": "outpost:op_sulak_bridge",
+     "text": "Сожгите мост на Сулаке",
+     "points": [
+      {
+       "at": "outpost:op_sulak_bridge",
+       "label": "Поджечь мост",
+       "fx": "fire",
+       "smoke": true
+      }
+     ],
+     "spawn": [
+      {
+       "at": "outpost:op_sulak_bridge",
+       "g": [
+        [
+         "sarbaz",
+         3
+        ],
+        [
+         "light_cav",
+         2
+        ]
+       ],
+       "guard": true
+      }
+     ],
+     "left": 99
+    }
+   ],
+   "req": [
+    "m31"
+   ],
+   "start": "village:dzhengutay:square",
+   "hint": "Муртазали ждёт в Дженгутае",
+   "reward": {
+    "xp": 600,
+    "rep": {
+     "kumyk": 20
+    }
+   },
+   "done": {
+    "regions": {
+     "kumyk": "highlanders"
+    },
+    "unity": [
+     "kumyk"
+    ],
+    "chronicle": [
+     "shamkhalate"
+    ]
+   }
+  },
+  {
+   "id": "m33",
+   "n": 33,
+   "title": "Суд над Шахманом",
+   "act": 4,
+   "desc": "Шахман вёл персов тропами Андалала. Найдите его и приведите на суд старейшин.",
+   "steps": [
+    {
+     "type": "interact",
+     "text": "Расспросите людей в сёлах Андалала",
+     "points": [
+      {
+       "at": "village:obokh:square",
+       "label": "Расспросить старика",
+       "say": "«Шахман? Видели его на тропе к Мегебу, с вьюком персидского сукна»."
+      },
+      {
+       "at": "village:megeb:square",
+       "label": "Расспросить пастуха",
+       "say": "«Он ночует у старой башни над Мегебом. Боится своих больше, чем персов»."
+      },
+      {
+       "at": "poi:tower_andalal",
+       "label": "Осмотреть башню",
+       "say": "Свежие угли и персидская монета. Он рядом."
+      }
+     ]
+    },
+    {
+     "type": "chase",
+     "text": "Поймайте Шахмана",
+     "checkpoint": true,
+     "catchR": 3.5,
+     "escapeFails": true,
+     "escapeText": "Шахман скрылся",
+     "who": {
+      "at": {
+       "near": "poi:tower_andalal",
+       "a": 180,
+       "d": 30
+      },
+      "u": "shakhman",
+      "team": "neutral",
+      "title": "Шахман",
+      "mode": "run"
+     },
+     "path": [
+      {
+       "near": "poi:tower_andalal",
+       "a": 180,
+       "d": 120
+      },
+      {
+       "near": "poi:tower_andalal",
+       "a": 220,
+       "d": 260
+      },
+      "village:megeb:edge:180"
+     ]
+    },
+    {
+     "type": "talk",
+     "who": "elder",
+     "at": "village:sogratl:mosque",
+     "name": "Суд старейшин",
+     "id": "shakhman_trial"
+    },
+    {
+     "type": "fight",
+     "if": {
+      "choice": {
+       "shakhman": "duel"
+      }
+     },
+     "at": "village:sogratl:square",
+     "target": "boss",
+     "text": "Поединок с Шахманом",
+     "spawn": [
+      {
+       "at": "village:sogratl:square",
+       "u": "shakhman",
+       "tag": "boss",
+       "boss": true,
+       "attack": true,
+       "title": "Шахман"
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m32"
+   ],
+   "start": "village:sogratl:mosque",
+   "hint": "Старейшины собираются в Согратле",
+   "reward": {
+    "xp": 600,
+    "rep": {
+     "avar": 10
+    },
+    "chronicle": [
+     "shakhman_trial_entry"
+    ]
+   }
+  },
+  {
+   "id": "m34",
+   "n": 34,
+   "title": "Брат против брата",
+   "act": 4,
+   "desc": "Ахмед прислал весть: ждёт вас один, в табасаранском лесу.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": {
+      "near": "village:khuchni",
+      "a": 130,
+      "d": 180
+     },
+     "r": 12,
+     "text": "Приходите один на поляну в лесу"
+    },
+    {
+     "type": "talk",
+     "who": "ahmed",
+     "at": {
+      "near": "village:khuchni",
+      "a": 130,
+      "d": 186
+     },
+     "name": "Ахмед",
+     "id": "ahmed_meet"
+    },
+    {
+     "type": "fight",
+     "if": {
+      "choice": {
+       "ahmed": "fight"
+      }
+     },
+     "target": "boss",
+     "text": "Поединок с Ахмедом",
+     "checkpoint": true,
+     "spawn": [
+      {
+       "at": {
+        "near": "village:khuchni",
+        "a": 130,
+        "d": 192
+       },
+       "u": "ahmed",
+       "team": "persian",
+       "tag": "boss",
+       "boss": true,
+       "attack": true,
+       "title": "Ахмед",
+       "hp": 420
+      }
+     ]
+    },
+    {
+     "type": "dialog",
+     "if": {
+      "choice": {
+       "ahmed": "fight"
+      }
+     },
+     "lines": [
+      [
+       "narrator",
+       "Ахмед лежит в снегу. «Скажи Патимат… я не хотел». Больше он ничего не сказал."
+      ]
+     ]
+    },
+    {
+     "type": "dialog",
+     "if": {
+      "choice": {
+       "ahmed": "forgive"
+      }
+     },
+     "lines": [
+      [
+       "ahmed",
+       "Я знаю, где шах держит последнюю часть трона. В Нарын-кале. Я проведу тебя к стенам."
+      ]
+     ]
+    }
+   ],
+   "req": [
+    "m33"
+   ],
+   "start": "village:khuchni:square",
+   "hint": "Табасаранский лес у Хучни",
+   "reward": {
+    "xp": 600,
+    "chronicle": [
+     "ahmed"
+    ]
+   }
+  },
+  {
+   "id": "m35",
+   "n": 35,
+   "title": "Четвёртая реликвия",
+   "act": 4,
+   "desc": "«Венец трона» хранится в цитадели Нарын-кала. Проникните в Дербент.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": "derbent:gate",
+     "r": 18,
+     "text": "Подберитесь к северным воротам Дербента ночью",
+     "do": {
+      "hours": 23.4,
+      "weather": "snow"
+     },
+     "spawn": [
+      {
+       "at": "poi:tower_derbent",
+       "u": "ahmed",
+       "follow": true,
+       "essential": true,
+       "tag": "hero_ally",
+       "if": {
+        "choice": {
+         "ahmed": "forgive"
+        }
+       }
+      }
+     ]
+    },
+    {
+     "type": "goto",
+     "at": "derbent:street",
+     "r": 14,
+     "text": "Пройдите по улицам города, не попадаясь страже",
+     "stealth": true,
+     "lives": 3,
+     "checkpoint": true,
+     "spawn": [
+      {
+       "at": "derbent:street",
+       "g": [
+        [
+         "sarbaz",
+         2
+        ]
+       ],
+       "guard": true
+      },
+      {
+       "at": {
+        "near": "derbent:street",
+        "a": 90,
+        "d": 40
+       },
+       "g": [
+        [
+         "sarbaz",
+         2
+        ],
+        [
+         "jazayerchi",
+         1
+        ]
+       ],
+       "guard": true
+      }
+     ]
+    },
+    {
+     "type": "collect",
+     "at": "derbent:citadel",
+     "relic": 4,
+     "label": "Взять «Венец трона»",
+     "stealth": true,
+     "lives": 3,
+     "text": "Проберитесь в Нарын-калу и заберите реликвию",
+     "spawn": [
+      {
+       "at": {
+        "near": "derbent:citadel",
+        "a": 0,
+        "d": 30
+       },
+       "g": [
+        [
+         "guard_foot",
+         2
+        ],
+        [
+         "officer",
+         1
+        ]
+       ],
+       "guard": true
+      }
+     ]
+    },
+    {
+     "type": "ride",
+     "at": "poi:tower_derbent",
+     "r": 25,
+     "text": "Уходите из города",
+     "spawn": [
+      {
+       "at": "derbent:gate",
+       "g": [
+        [
+         "light_cav",
+         3
+        ]
+       ],
+       "attack": true
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m34"
+   ],
+   "start": "poi:tower_derbent",
+   "hint": "Дозорная башня у Дербента",
+   "reward": {
+    "xp": 700,
+    "chronicle": [
+     "naryn_kala"
+    ]
+   }
+  },
+  {
+   "id": "m36",
+   "n": 36,
+   "title": "Видение Сарира",
+   "act": 4,
+   "desc": "Хаджи-Али ждёт в Хунзахе. Пришло время узнать правду о троне.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": "village:khunzakh:square",
+     "r": 15,
+     "text": "Доберитесь до Хунзаха"
+    },
+    {
+     "type": "talk",
+     "who": "hadji_ali",
+     "at": "village:khunzakh:mosque",
+     "name": "Хаджи-Али",
+     "id": "hadji_truth"
+    },
+    {
+     "type": "cutscene",
+     "id": "truth"
+    }
+   ],
+   "req": [
+    "m35"
+   ],
+   "start": "village:khunzakh:square",
+   "hint": "Хунзах",
+   "reward": {
+    "xp": 600,
+    "chronicle": [
+     "sarir_truth"
+    ]
+   }
+  },
+  {
+   "id": "m37",
+   "n": 37,
+   "title": "Пушки Дербента",
+   "act": 4,
+   "desc": "Весной шах готовит последний удар. Заклепайте его осадные орудия.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": {
+      "near": "camp:derbent",
+      "a": 270,
+      "d": 120
+     },
+     "r": 20,
+     "text": "Подберитесь к батарее у Дербента",
+     "do": {
+      "hours": 2.5,
+      "weather": "fog"
+     }
+    },
+    {
+     "type": "fight",
+     "text": "Заклепайте все пушки батареи",
+     "checkpoint": true,
+     "left": 99,
+     "points": [
+      {
+       "at": "cannon:derbent:0",
+       "label": "Заклепать пушку",
+       "fx": "spike"
+      },
+      {
+       "at": "cannon:derbent:1",
+       "label": "Заклепать пушку",
+       "fx": "spike"
+      },
+      {
+       "at": "cannon:derbent:2",
+       "label": "Заклепать пушку",
+       "fx": "spike"
+      },
+      {
+       "at": "cannon:derbent:3",
+       "label": "Заклепать пушку",
+       "fx": "spike"
+      }
+     ],
+     "spawn": [
+      {
+       "at": {
+        "near": "camp:derbent",
+        "a": 180,
+        "d": 42
+       },
+       "u": "artillerist",
+       "n": 4,
+       "guard": true
+      },
+      {
+       "at": {
+        "near": "camp:derbent",
+        "a": 180,
+        "d": 30
+       },
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         2
+        ]
+       ],
+       "guard": true
+      }
+     ]
+    },
+    {
+     "type": "ride",
+     "at": "poi:tower_derbent",
+     "r": 25,
+     "text": "Уходите, пока не подняли весь лагерь",
+     "spawn": [
+      {
+       "at": "camp:derbent",
+       "g": [
+        [
+         "light_cav",
+         3
+        ],
+        [
+         "guard_cav",
+         1
+        ]
+       ],
+       "attack": true
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m36"
+   ],
+   "start": "poi:tower_derbent",
+   "hint": "Дозорная башня у Дербента",
+   "reward": {
+    "xp": 700,
+    "chronicle": [
+     "artillery"
+    ]
+   }
+  },
+  {
+   "id": "m38",
+   "n": 38,
+   "title": "Последний поход шаха",
+   "act": 4,
+   "desc": "Весна 1743. Шах бросает в горы всё, что у него осталось. Встречайте его всеми народами.",
+   "steps": [
+    {
+     "type": "cutscene",
+     "id": "last_campaign",
+     "do": {
+      "season": "spring",
+      "weather": "clear",
+      "hours": 8
+     }
+    },
+    {
+     "type": "fight",
+     "at": "poi:tower_tabasaran",
+     "time": 240,
+     "text": "Отразите наступление объединёнными отрядами",
+     "checkpoint": true,
+     "leash": {
+      "r": 200
+     },
+     "allies": [
+      {
+       "at": "poi:tower_tabasaran",
+       "u": "murtazali",
+       "follow": true,
+       "essential": true,
+       "tag": "hero_ally"
+      },
+      {
+       "at": "poi:tower_tabasaran",
+       "u": "patimat",
+       "follow": true,
+       "essential": true,
+       "tag": "hero_ally"
+      },
+      {
+       "at": "poi:tower_tabasaran",
+       "u": "unity",
+       "n": 2
+      }
+     ],
+     "waves": [
+      {
+       "t": 3,
+       "spawn": [
+        {
+         "at": {
+          "near": "poi:tower_tabasaran",
+          "a": 150,
+          "d": 170
+         },
+         "g": [
+          [
+           "officer",
+           1
+          ],
+          [
+           "sarbaz",
+           5
+          ],
+          [
+           "jazayerchi",
+           3
+          ]
+         ],
+         "to": "poi:tower_tabasaran",
+         "scaleByRelics": true
+        }
+       ]
+      },
+      {
+       "t": 70,
+       "say": "Конница шаха!",
+       "spawn": [
+        {
+         "at": {
+          "near": "poi:tower_tabasaran",
+          "a": 120,
+          "d": 190
+         },
+         "g": [
+          [
+           "guard_cav",
+           3
+          ],
+          [
+           "light_cav",
+           4
+          ]
+         ],
+         "to": "poi:tower_tabasaran"
+        }
+       ]
+      },
+      {
+       "t": 150,
+       "say": "Замбураки и гвардия!",
+       "spawn": [
+        {
+         "at": {
+          "near": "poi:tower_tabasaran",
+          "a": 170,
+          "d": 180
+         },
+         "g": [
+          [
+           "zamburakchi",
+           2
+          ],
+          [
+           "guard_foot",
+           3
+          ],
+          [
+           "officer",
+           1
+          ]
+         ],
+         "to": "poi:tower_tabasaran"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m37"
+   ],
+   "start": "poi:tower_tabasaran",
+   "hint": "Табасаранская башня",
+   "reward": {
+    "xp": 1200,
+    "coins": 200
+   },
+   "done": {
+    "regions": {
+     "tabasaran": "highlanders",
+     "samur": "highlanders",
+     "kumyk": "highlanders",
+     "avaria": "highlanders"
+    },
+    "villages": {
+     "khuchni": "highlanders",
+     "akhty": "highlanders"
+    },
+    "chronicle": [
+     "last_campaign"
+    ]
+   }
+  },
+  {
+   "id": "m39",
+   "n": 39,
+   "title": "Уход Грозы Вселенной",
+   "act": 5,
+   "desc": "Персидская армия уходит из Дагестана. Поднимитесь на высоты и проводите её взглядом.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": "poi:tower_derbent",
+     "r": 20,
+     "text": "Поднимитесь к дозорной башне над Дербентом"
+    },
+    {
+     "type": "cutscene",
+     "id": "shah_leaves"
+    },
+    {
+     "type": "interact",
+     "text": "Помяните павших",
+     "points": [
+      {
+       "at": "home:cemetery",
+       "label": "Прочесть молитву над павшими",
+       "say": "Ветер с гор. Где-то внизу поют зурны."
+      }
+     ]
+    }
+   ],
+   "req": [
+    "m38"
+   ],
+   "start": "poi:tower_derbent",
+   "hint": "Дербент",
+   "set": {
+    "act": 5
+   },
+   "reward": {
+    "xp": 500
+   },
+   "done": {
+    "regions": {
+     "derbent": "highlanders"
+    },
+    "chronicle": [
+     "shah_leaves"
+    ]
+   }
+  },
+  {
+   "id": "m40",
+   "n": 40,
+   "title": "1747",
+   "act": 5,
+   "desc": "Дневник Мирзы Казема.",
+   "steps": [
+    {
+     "type": "cutscene",
+     "id": "y1747"
+    },
+    {
+     "type": "do",
+     "do": {
+      "epilogue": true
+     }
+    },
+    {
+     "type": "do",
+     "do": {
+      "credits": true,
+      "set": {
+       "campaign_done": true
+      }
+     }
+    }
+   ],
+   "req": [
+    "m39"
+   ],
+   "auto": true,
+   "linear": true,
+   "reward": {
+    "xp": 300,
+    "chronicle": [
+     "nader_death"
+    ]
+   }
+  }
+ ],
+ "side": [
+  {
+   "id": "s_avar_1",
+   "side": true,
+   "people": "avar",
+   "k": 1,
+   "title": "Кровная вражда",
+   "desc": "Два рода Обоха и Согратля в кровной вражде. Пока они спорят, персы ходят мимо.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "villager_m",
+     "at": "village:obokh:square",
+     "name": "Старшина рода из Обоха",
+     "lines": [
+      [
+       "villager_m",
+       "Сорок лет назад их дед убил нашего. Кровь не высохла. Пусть они первыми придут с повинной."
+      ]
+     ]
+    },
+    {
+     "type": "talk",
+     "who": "villager_m",
+     "at": "village:sogratl:mosque",
+     "name": "Старшина рода из Согратля",
+     "lines": [
+      [
+       "villager_m",
+       "С повинной? Пусть сначала вернут нашу межу на пастбище."
+      ]
+     ],
+     "choices": [
+      {
+       "text": "«Шах сожжёт и межу, и пастбище. Примиритесь у кадия».",
+       "rep": {
+        "avar": 10
+       },
+       "set": {
+        "blood_peace": true
+       }
+      },
+      {
+       "text": "«Я заплачу за вашу межу из своих денег». (30 монет)",
+       "if": {
+        "coins": 30
+       },
+       "coins": -30,
+       "rep": {
+        "avar": 15
+       },
+       "set": {
+        "blood_peace": true
+       }
+      }
+     ]
+    },
+    {
+     "type": "dialog",
+     "lines": [
+      [
+       "narrator",
+       "У мечети Согратля два старика обнимаются впервые за сорок лет. Кадий записывает мир."
+      ]
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 200,
+    "rep": {
+     "avar": 10
+    },
+    "chronicle": [
+     "adat"
+    ]
+   },
+   "offer_lines": [
+    [
+     "elder",
+     "Наши роды в кровной вражде. Помири их — и андалальцы станут сильнее."
+    ]
+   ]
+  },
+  {
+   "id": "s_avar_2",
+   "side": true,
+   "people": "avar",
+   "k": 2,
+   "title": "Похищенная невеста",
+   "desc": "Персидский разъезд увёз невесту из Чоха. Её везут в лагерь на продажу.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": {
+      "near": "village:chokh",
+      "a": 110,
+      "d": 260
+     },
+     "text": "Догоните разъезд и отбейте пленницу",
+     "spawn": [
+      {
+       "at": {
+        "near": "village:chokh",
+        "a": 110,
+        "d": 260
+       },
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "light_cav",
+         2
+        ],
+        [
+         "sarbaz",
+         2
+        ]
+       ],
+       "state": "idle"
+      },
+      {
+       "at": {
+        "near": "village:chokh",
+        "a": 110,
+        "d": 262
+       },
+       "u": "villager_f",
+       "team": "highlanders",
+       "tag": "captive",
+       "state": "idle",
+       "title": "Невеста из Чоха"
+      }
+     ],
+     "protect": "captive",
+     "protectFail": "пленница погибла"
+    },
+    {
+     "type": "escort",
+     "text": "Верните невесту в Чох",
+     "path": [
+      {
+       "near": "village:chokh",
+       "a": 110,
+       "d": 262
+      },
+      "village:chokh:square"
+     ],
+     "mode": "run",
+     "who": [
+      {
+       "at": {
+        "near": "village:chokh",
+        "a": 110,
+        "d": 263
+       },
+       "u": "villager_f",
+       "title": "Невеста из Чоха"
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 300,
+    "coins": 30,
+    "rep": {
+     "avar": 15
+    }
+   },
+   "req": [
+    "s_avar_1"
+   ]
+  },
+  {
+   "id": "s_avar_3",
+   "side": true,
+   "people": "avar",
+   "k": 3,
+   "title": "Наследное ружьё",
+   "desc": "Ружьё старого мастера из Согратля хранится у его вдовы. Она отдаст его тому, кто защитит её дом.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "villager_f",
+     "at": "village:sogratl:house:3",
+     "name": "Вдова мастера",
+     "lines": [
+      [
+       "villager_f",
+       "Мой муж делал стволы, что били на двести шагов. Последнее ружьё — для того, кто защитит Андалал."
+      ]
+     ]
+    },
+    {
+     "type": "fight",
+     "at": "village:sogratl:edge:200",
+     "text": "Перебейте персидских лазутчиков у села",
+     "spawn": [
+      {
+       "at": "village:sogratl:edge:200",
+       "g": [
+        [
+         "defector",
+         2
+        ],
+        [
+         "sarbaz",
+         2
+        ]
+       ],
+       "attack": true
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 350,
+    "weapons": [
+     "rifle_sogratl"
+    ],
+    "items": [
+     "rifle_sogratl"
+    ],
+    "rep": {
+     "avar": 20
+    },
+    "chronicle": [
+     "sogratl_guns"
+    ]
+   },
+   "req": [
+    "s_avar_2"
+   ]
+  },
+  {
+   "id": "s_dargin_1",
+   "side": true,
+   "people": "dargin",
+   "k": 1,
+   "title": "Мастер-оружейник в плену",
+   "desc": "Персы увели кубачинского мастера на заставу у перевала.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": "outpost:op_kubachi_pass",
+     "text": "Разбейте заставу у Кубачинского перевала",
+     "do": {
+      "outposts": {
+       "op_kubachi_pass": "active"
+      }
+     },
+     "spawn": [
+      {
+       "at": "outpost:op_kubachi_pass",
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         3
+        ],
+        [
+         "jazayerchi",
+         1
+        ]
+       ],
+       "guard": true,
+       "spread": 9
+      },
+      {
+       "at": {
+        "near": "outpost:op_kubachi_pass",
+        "a": 0,
+        "d": 4
+       },
+       "u": "smith",
+       "team": "highlanders",
+       "tag": "captive",
+       "title": "Пленный мастер"
+      }
+     ],
+     "protect": "captive",
+     "protectFail": "мастер погиб"
+    },
+    {
+     "type": "escort",
+     "text": "Доведите мастера до Кубачи",
+     "path": [
+      {
+       "near": "outpost:op_kubachi_pass",
+       "a": 0,
+       "d": 4
+      },
+      "village:kubachi:square"
+     ],
+     "mode": "run",
+     "who": [
+      {
+       "at": {
+        "near": "outpost:op_kubachi_pass",
+        "a": 0,
+        "d": 5
+       },
+       "u": "smith",
+       "title": "Мастер-оружейник"
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 300,
+    "rep": {
+     "dargin": 15
+    },
+    "chronicle": [
+     "kubachi"
+    ]
+   },
+   "offer_lines": [
+    [
+     "elder",
+     "Персы увели нашего лучшего оружейника. Без него кузни Кубачи молчат."
+    ]
+   ]
+  },
+  {
+   "id": "s_dargin_2",
+   "side": true,
+   "people": "dargin",
+   "k": 2,
+   "title": "Кольчуги для ополчения",
+   "desc": "Акуша собирает ополчение. Нужно железо — его везут персидским фуражирам в обмен на хлеб.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": {
+      "near": "village:akusha",
+      "a": 220,
+      "d": 230
+     },
+     "text": "Перехватите вьюки с железом",
+     "spawn": [
+      {
+       "at": {
+        "near": "village:akusha",
+        "a": 220,
+        "d": 230
+       },
+       "g": [
+        [
+         "forager",
+         3
+        ],
+        [
+         "sarbaz",
+         2
+        ]
+       ],
+       "state": "wander",
+       "spread": 10
+      }
+     ]
+    },
+    {
+     "type": "interact",
+     "text": "Соберите железо с вьюков",
+     "points": [
+      {
+       "at": {
+        "near": "village:akusha",
+        "a": 220,
+        "d": 230
+       },
+       "label": "Забрать вьюки с железом",
+       "give": {
+        "iron": 6
+       }
+      }
+     ]
+    },
+    {
+     "type": "goto",
+     "at": "village:akusha:square",
+     "text": "Привезите железо в Акушу"
+    }
+   ],
+   "reward": {
+    "xp": 300,
+    "coins": 40,
+    "rep": {
+     "dargin": 15
+    }
+   },
+   "req": [
+    "s_dargin_1"
+   ]
+  },
+  {
+   "id": "s_dargin_3",
+   "side": true,
+   "people": "dargin",
+   "k": 3,
+   "title": "Испытание уцмия",
+   "desc": "Ахмед-хан Кайтагский пришлёт людей, если гость докажет, что достоин.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "akhmed_utsmiy",
+     "at": "village:kala_koreish:square",
+     "name": "Ахмед-хан, уцмий",
+     "lines": [
+      [
+       "akhmed_utsmiy",
+       "Шах пишет мне письма, обещает милости. Ты обещаешь только войну. Почему я должен выбрать тебя?"
+      ],
+      [
+       "akhmed_utsmiy",
+       "Мой лучший боец выйдет против тебя на деревянных саблях… шучу. На настоящих. До первой крови."
+      ]
+     ]
+    },
+    {
+     "type": "fight",
+     "at": "village:kala_koreish:square",
+     "target": "boss",
+     "text": "Поединок с бойцом уцмия",
+     "spawn": [
+      {
+       "at": "village:kala_koreish:edge:90",
+       "u": "kubachi_mailed",
+       "team": "neutral",
+       "tag": "boss",
+       "boss": true,
+       "attack": true,
+       "title": "Боец уцмия",
+       "hp": 260
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 400,
+    "rep": {
+     "dargin": 20
+    },
+    "chronicle": [
+     "akhmed_utsmiy"
+    ]
+   },
+   "req": [
+    "s_dargin_2"
+   ]
+  },
+  {
+   "id": "s_lak_1",
+   "side": true,
+   "people": "lak",
+   "k": 1,
+   "title": "Спор о пастбищах",
+   "desc": "Пастухи Ури и Кумуха спорят из-за летнего пастбища.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "villager_m",
+     "at": "village:uri:square",
+     "name": "Пастух из Ури",
+     "lines": [
+      [
+       "villager_m",
+       "Это пастбище наше с дедовских времён!"
+      ]
+     ]
+    },
+    {
+     "type": "talk",
+     "who": "villager_m",
+     "at": "village:kumukh:spring",
+     "name": "Пастух из Кумуха",
+     "lines": [
+      [
+       "villager_m",
+       "А по ханской грамоте — наше."
+      ]
+     ],
+     "choices": [
+      {
+       "text": "«Пасите по очереди: год вы, год они».",
+       "rep": {
+        "lak": 15
+       }
+      },
+      {
+       "text": "«Отдайте пастбище под общий табун ополчения».",
+       "rep": {
+        "lak": 10
+       },
+       "give": {
+        "food": 3
+       }
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 200,
+    "chronicle": [
+     "adat"
+    ]
+   },
+   "offer_lines": [
+    [
+     "elder",
+     "Пока пастухи Ури и Кумуха спорят, ополчение не собрать. Рассуди их."
+    ]
+   ]
+  },
+  {
+   "id": "s_lak_2",
+   "side": true,
+   "people": "lak",
+   "k": 2,
+   "title": "Караван с солью",
+   "desc": "Соляной караван из Кумуха должен дойти до Акуши — от соли зависит, переживут ли сёла зиму.",
+   "steps": [
+    {
+     "type": "escort",
+     "text": "Проведите соляной караван в Акушу",
+     "path": {
+      "road": [
+       "village:kumukh:square",
+       "village:akusha:square"
+      ],
+      "max": 0.55
+     },
+     "mode": "run",
+     "who": [
+      {
+       "at": "village:kumukh:square",
+       "u": "merchant",
+       "n": 2,
+       "title": "Торговец солью"
+      },
+      {
+       "at": "village:kumukh:square",
+       "u": "militia_rifle",
+       "n": 2,
+       "fight": true
+      }
+     ],
+     "ambush": [
+      {
+       "at": 0.5,
+       "spawn": [
+        {
+         "at": "player",
+         "g": [
+          [
+           "light_cav",
+           3
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 300,
+    "coins": 60,
+    "rep": {
+     "lak": 15
+    }
+   },
+   "req": [
+    "s_lak_1"
+   ]
+  },
+  {
+   "id": "s_lak_3",
+   "side": true,
+   "people": "lak",
+   "k": 3,
+   "title": "Знамя Казикумуха",
+   "desc": "Знамя ханства пропало при отступлении. Говорят, его прячут в разорённой мечети.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": {
+      "near": "village:kumukh",
+      "a": 150,
+      "d": 140
+     },
+     "text": "Отбейте знамя у мародёров",
+     "spawn": [
+      {
+       "at": {
+        "near": "village:kumukh",
+        "a": 150,
+        "d": 140
+       },
+       "g": [
+        [
+         "sarbaz",
+         3
+        ],
+        [
+         "defector",
+         1
+        ]
+       ],
+       "state": "wander"
+      }
+     ]
+    },
+    {
+     "type": "collect",
+     "at": {
+      "near": "village:kumukh",
+      "a": 150,
+      "d": 142
+     },
+     "label": "Поднять знамя Казикумуха",
+     "items": [
+      "banner_kazikumukh"
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 400,
+    "rep": {
+     "lak": 20
+    }
+   },
+   "req": [
+    "s_lak_2"
+   ]
+  },
+  {
+   "id": "s_lezgin_1",
+   "side": true,
+   "people": "lezgin",
+   "k": 1,
+   "title": "Украденные кони",
+   "desc": "Персидские конокрады угнали табун из Ахты.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": {
+      "near": "village:akhty",
+      "a": 60,
+      "d": 240
+     },
+     "text": "Найдите конокрадов",
+     "spawn": [
+      {
+       "at": {
+        "near": "village:akhty",
+        "a": 60,
+        "d": 240
+       },
+       "g": [
+        [
+         "light_cav",
+         3
+        ],
+        [
+         "forager",
+         2
+        ]
+       ],
+       "state": "idle"
+      }
+     ]
+    },
+    {
+     "type": "interact",
+     "text": "Отвяжите коней",
+     "points": [
+      {
+       "at": {
+        "near": "village:akhty",
+        "a": 60,
+        "d": 242
+       },
+       "label": "Отвязать табун"
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 300,
+    "rep": {
+     "lezgin": 15
+    }
+   },
+   "offer_lines": [
+    [
+     "elder",
+     "Конокрады угнали наших коней. Лезгин без коня — полвоина."
+    ]
+   ]
+  },
+  {
+   "id": "s_lezgin_2",
+   "side": true,
+   "people": "lezgin",
+   "k": 2,
+   "title": "Набег на обоз",
+   "desc": "Шахский обоз идёт вдоль Самура. Лезгины ждут, кто поведёт набег.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": {
+      "near": "village:akhty",
+      "a": 100,
+      "d": 200
+     },
+     "text": "Разгромите обоз у Самура",
+     "allies": [
+      {
+       "at": "village:akhty:square",
+       "u": "lezgin_skirmisher",
+       "n": 3,
+       "follow": true
+      }
+     ],
+     "spawn": [
+      {
+       "at": {
+        "near": "village:akhty",
+        "a": 100,
+        "d": 200
+       },
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         3
+        ],
+        [
+         "forager",
+         2
+        ]
+       ],
+       "guard": true
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 350,
+    "coins": 60,
+    "give": {
+     "powder": 8,
+     "lead": 8
+    },
+    "rep": {
+     "lezgin": 15
+    }
+   },
+   "req": [
+    "s_lezgin_1"
+   ]
+  },
+  {
+   "id": "s_lezgin_3",
+   "side": true,
+   "people": "lezgin",
+   "k": 3,
+   "title": "Старая клятва",
+   "desc": "Деды Ахты клялись на камне у родника: пока камень стоит, лезгины не склонят головы.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": "village:akhty:spring",
+     "text": "Поднимитесь к роднику над Ахты"
+    },
+    {
+     "type": "fight",
+     "at": "village:akhty:spring",
+     "text": "Персы хотят разбить клятвенный камень — не дайте",
+     "spawn": [
+      {
+       "at": "village:akhty:edge:90",
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         3
+        ],
+        [
+         "jazayerchi",
+         1
+        ]
+       ],
+       "to": "village:akhty:spring",
+       "attack": true
+      }
+     ]
+    },
+    {
+     "type": "interact",
+     "text": "Повторите клятву дедов",
+     "points": [
+      {
+       "at": "village:akhty:spring",
+       "label": "Положить руку на камень"
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 400,
+    "rep": {
+     "lezgin": 20
+    }
+   },
+   "req": [
+    "s_lezgin_2"
+   ]
+  },
+  {
+   "id": "s_tab_1",
+   "side": true,
+   "people": "tabasaran",
+   "k": 1,
+   "title": "Ковёр-карта",
+   "desc": "Ткачиха из Хучни вплела в ковёр тропы и тайники всего края.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "villager_f",
+     "at": "village:khuchni:house:2",
+     "name": "Ткачиха",
+     "lines": [
+      [
+       "villager_f",
+       "Каждый узор — тропа, каждый ромб — родник. Но нитки кончились: красную краску держат персы на заставе."
+      ]
+     ]
+    },
+    {
+     "type": "fight",
+     "at": "outpost:op_tabasaran_road",
+     "text": "Добудьте краску с заставы на дороге",
+     "do": {
+      "outposts": {
+       "op_tabasaran_road": "active"
+      }
+     },
+     "spawn": [
+      {
+       "at": "outpost:op_tabasaran_road",
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         3
+        ]
+       ],
+       "guard": true
+      }
+     ]
+    },
+    {
+     "type": "goto",
+     "at": "village:khuchni:house:2",
+     "r": 6,
+     "text": "Отнесите краску ткачихе"
+    }
+   ],
+   "reward": {
+    "xp": 300,
+    "items": [
+     "carpet_map"
+    ],
+    "rep": {
+     "tabasaran": 15
+    },
+    "chronicle": [
+     "carpets"
+    ]
+   },
+   "offer_lines": [
+    [
+     "elder",
+     "Наша ткачиха может соткать карту всех троп до Дербента. Ей нужна помощь."
+    ]
+   ]
+  },
+  {
+   "id": "s_tab_2",
+   "side": true,
+   "people": "tabasaran",
+   "k": 2,
+   "title": "Лесная засада",
+   "desc": "Табасаранские лучники хотят проучить персидский патруль.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": {
+      "near": "village:khuchni",
+      "a": 300,
+      "d": 220
+     },
+     "text": "Устройте засаду вместе с лучниками",
+     "allies": [
+      {
+       "at": "village:khuchni:square",
+       "u": "tabasaran_archer",
+       "n": 3,
+       "follow": true
+      }
+     ],
+     "spawn": [
+      {
+       "at": {
+        "near": "village:khuchni",
+        "a": 300,
+        "d": 300
+       },
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         3
+        ],
+        [
+         "light_cav",
+         1
+        ]
+       ],
+       "path": [
+        {
+         "near": "village:khuchni",
+         "a": 300,
+         "d": 200
+        },
+        {
+         "near": "village:khuchni",
+         "a": 300,
+         "d": 60
+        }
+       ],
+       "mode": "walk"
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 350,
+    "rep": {
+     "tabasaran": 15
+    }
+   },
+   "req": [
+    "s_tab_1"
+   ]
+  },
+  {
+   "id": "s_tab_3",
+   "side": true,
+   "people": "tabasaran",
+   "k": 3,
+   "title": "Совет кадиев",
+   "desc": "Кадии Табасарана спорят: склониться перед шахом или воевать.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "elder",
+     "at": "village:khuchni:mosque",
+     "name": "Кадий",
+     "lines": [
+      [
+       "elder",
+       "Шах обещает, что не тронет тех, кто платит дань. Зачем нам умирать?"
+      ]
+     ],
+     "choices": [
+      {
+       "text": "«Он обещал и Шемахе. Где теперь Шемаха?»",
+       "rep": {
+        "tabasaran": 15
+       }
+      },
+      {
+       "text": "«Покажите мне хоть одно село, где шах сдержал слово».",
+       "rep": {
+        "tabasaran": 10
+       }
+      }
+     ]
+    },
+    {
+     "type": "dialog",
+     "lines": [
+      [
+       "elder",
+       "Ты говоришь как старики, что помнят 1735 год. Хорошо. Табасаран выставит лучников."
+      ]
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 300,
+    "rep": {
+     "tabasaran": 15
+    }
+   },
+   "req": [
+    "s_tab_2"
+   ]
+  },
+  {
+   "id": "s_agul_1",
+   "side": true,
+   "people": "agul",
+   "k": 1,
+   "title": "Пропавшие проводники",
+   "desc": "Двое агульских проводников не вернулись с перевала.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": {
+      "near": "village:tpig",
+      "a": 270,
+      "d": 200
+     },
+     "r": 20,
+     "text": "Ищите следы проводников на тропе"
+    },
+    {
+     "type": "fight",
+     "text": "Проводников окружили волки",
+     "spawn": [
+      {
+       "at": {
+        "near": "village:tpig",
+        "a": 270,
+        "d": 215
+       },
+       "u": "wolf",
+       "n": 4,
+       "attack": true
+      },
+      {
+       "at": {
+        "near": "village:tpig",
+        "a": 270,
+        "d": 210
+       },
+       "u": "agul_guide",
+       "n": 2,
+       "team": "highlanders",
+       "tag": "captive"
+      }
+     ],
+     "protect": "captive",
+     "protectFail": "проводники погибли"
+    }
+   ],
+   "reward": {
+    "xp": 300,
+    "rep": {
+     "agul": 15
+    }
+   },
+   "offer_lines": [
+    [
+     "elder",
+     "Двое наших проводников ушли на перевал и пропали. Без них мы слепы."
+    ]
+   ]
+  },
+  {
+   "id": "s_agul_2",
+   "side": true,
+   "people": "agul",
+   "k": 2,
+   "title": "Обвал на тропе",
+   "desc": "Обвал перекрыл единственную тропу из Агул-дере. Разберите завал, пока не пришли персы.",
+   "steps": [
+    {
+     "type": "interact",
+     "text": "Разберите завал",
+     "points": [
+      {
+       "at": {
+        "near": "village:tpig",
+        "a": 30,
+        "d": 150
+       },
+       "label": "Сдвинуть камни"
+      },
+      {
+       "at": {
+        "near": "village:tpig",
+        "a": 35,
+        "d": 160
+       },
+       "label": "Сдвинуть камни"
+      },
+      {
+       "at": {
+        "near": "village:tpig",
+        "a": 25,
+        "d": 170
+       },
+       "label": "Сдвинуть камни"
+      }
+     ]
+    },
+    {
+     "type": "fight",
+     "text": "Отбейте персидский разъезд",
+     "spawn": [
+      {
+       "at": {
+        "near": "village:tpig",
+        "a": 30,
+        "d": 260
+       },
+       "g": [
+        [
+         "light_cav",
+         2
+        ],
+        [
+         "sarbaz",
+         2
+        ]
+       ],
+       "attack": true
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 300,
+    "rep": {
+     "agul": 15
+    }
+   },
+   "req": [
+    "s_agul_1"
+   ]
+  },
+  {
+   "id": "s_agul_3",
+   "side": true,
+   "people": "agul",
+   "k": 3,
+   "title": "Испытание троп",
+   "desc": "Агульцы доверят своё ополчение тому, кто пройдёт их тропу быстрее старого проводника.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": {
+      "near": "village:tpig",
+      "a": 150,
+      "d": 220
+     },
+     "r": 10,
+     "limit": 120,
+     "text": "Пройдите тропу проводников до камня-ориентира",
+     "limitFail": "проводник пришёл первым"
+    },
+    {
+     "type": "goto",
+     "at": "village:tpig:square",
+     "r": 10,
+     "limit": 120,
+     "text": "Вернитесь в Тпиг",
+     "limitFail": "проводник пришёл первым"
+    }
+   ],
+   "reward": {
+    "xp": 350,
+    "items": [
+     "guide_staff"
+    ],
+    "rep": {
+     "agul": 20
+    }
+   },
+   "req": [
+    "s_agul_2"
+   ]
+  },
+  {
+   "id": "s_rutul_1",
+   "side": true,
+   "people": "rutul",
+   "k": 1,
+   "title": "Перевал в огне",
+   "desc": "Персы подожгли сторожевую башню над Самуром.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": "poi:tower_samur",
+     "text": "Отбейте сторожевую башню",
+     "points": [
+      {
+       "at": "poi:tower_samur",
+       "label": "Потушить огонь",
+       "fx": "douse",
+       "smoke": true
+      }
+     ],
+     "spawn": [
+      {
+       "at": "poi:tower_samur",
+       "g": [
+        [
+         "officer",
+         1
+        ],
+        [
+         "sarbaz",
+         3
+        ]
+       ],
+       "guard": true
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 300,
+    "rep": {
+     "rutul": 15
+    }
+   },
+   "offer_lines": [
+    [
+     "elder",
+     "Наша башня над Самуром горит. Без неё мы не увидим, откуда придут персы."
+    ]
+   ]
+  },
+  {
+   "id": "s_rutul_2",
+   "side": true,
+   "people": "rutul",
+   "k": 2,
+   "title": "Рог тревоги",
+   "desc": "Старый рог тревоги Рутула забрал персидский офицер — как трофей.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": {
+      "near": "village:rutul",
+      "a": 90,
+      "d": 230
+     },
+     "target": "boss",
+     "text": "Найдите офицера с рогом",
+     "spawn": [
+      {
+       "at": {
+        "near": "village:rutul",
+        "a": 90,
+        "d": 230
+       },
+       "u": "officer",
+       "tag": "boss",
+       "boss": true,
+       "title": "Юзбаши с трофеем"
+      },
+      {
+       "at": {
+        "near": "village:rutul",
+        "a": 90,
+        "d": 235
+       },
+       "g": [
+        [
+         "sarbaz",
+         3
+        ]
+       ],
+       "guard": true
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 350,
+    "items": [
+     "alarm_horn"
+    ],
+    "rep": {
+     "rutul": 15
+    }
+   },
+   "req": [
+    "s_rutul_1"
+   ]
+  },
+  {
+   "id": "s_rutul_3",
+   "side": true,
+   "people": "rutul",
+   "k": 3,
+   "title": "Поединок с поборником",
+   "desc": "Поборник шаха вызывает лучшего воина Рутула.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": "village:rutul:edge:0",
+     "target": "boss",
+     "text": "Победите поборника",
+     "spawn": [
+      {
+       "at": "village:rutul:edge:0",
+       "u": "champion",
+       "tag": "boss",
+       "boss": true,
+       "attack": true
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 450,
+    "rep": {
+     "rutul": 20
+    },
+    "chronicle": [
+     "duels"
+    ]
+   },
+   "req": [
+    "s_rutul_2"
+   ]
+  },
+  {
+   "id": "s_tsakhur_1",
+   "side": true,
+   "people": "tsakhur",
+   "k": 1,
+   "title": "Волки у стад",
+   "desc": "Волки режут овец на высокогорных пастбищах Цахура.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": {
+      "near": "village:tsakhur",
+      "a": 0,
+      "d": 200
+     },
+     "text": "Отгоните волков от стада",
+     "do": {
+      "hours": 21
+     },
+     "spawn": [
+      {
+       "at": {
+        "near": "village:tsakhur",
+        "a": 0,
+        "d": 210
+       },
+       "u": "wolf",
+       "n": 5,
+       "attack": true
+      },
+      {
+       "at": {
+        "near": "village:tsakhur",
+        "a": 0,
+        "d": 190
+       },
+       "u": "sheep",
+       "n": 4,
+       "team": "wild",
+       "tag": "sheep"
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 250,
+    "rep": {
+     "tsakhur": 15
+    },
+    "items": [
+     "shepherd_dog"
+    ]
+   },
+   "offer_lines": [
+    [
+     "elder",
+     "Волки повадились к нашим стадам. Пастухи ушли в ополчение — некому стеречь."
+    ]
+   ]
+  },
+  {
+   "id": "s_tsakhur_2",
+   "side": true,
+   "people": "tsakhur",
+   "k": 2,
+   "title": "Пропавший табун",
+   "desc": "Табун султана ушёл в туман и пропал.",
+   "steps": [
+    {
+     "type": "goto",
+     "at": {
+      "near": "village:tsakhur",
+      "a": 120,
+      "d": 260
+     },
+     "r": 20,
+     "text": "Найдите табун в тумане",
+     "do": {
+      "weather": "fog"
+     }
+    },
+    {
+     "type": "fight",
+     "text": "Персидские всадники уже ловят коней",
+     "spawn": [
+      {
+       "at": {
+        "near": "village:tsakhur",
+        "a": 120,
+        "d": 270
+       },
+       "g": [
+        [
+         "light_cav",
+         3
+        ]
+       ],
+       "attack": true
+      }
+     ]
+    },
+    {
+     "type": "ride",
+     "at": "village:tsakhur:square",
+     "r": 20,
+     "text": "Пригоните табун обратно"
+    }
+   ],
+   "reward": {
+    "xp": 300,
+    "rep": {
+     "tsakhur": 15
+    }
+   },
+   "req": [
+    "s_tsakhur_1"
+   ]
+  },
+  {
+   "id": "s_tsakhur_3",
+   "side": true,
+   "people": "tsakhur",
+   "k": 3,
+   "title": "Совет султана",
+   "desc": "Султан Илису колеблется: шах прислал ему халат и угрозы.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "elder",
+     "at": "village:tsakhur:mosque",
+     "name": "Посланник султана",
+     "lines": [
+      [
+       "elder",
+       "Султан носит халат шаха, но сердце его в горах. Скажи, что ему делать."
+      ]
+     ],
+     "choices": [
+      {
+       "text": "«Пусть пришлёт конных разведчиков — шах о них не узнает».",
+       "rep": {
+        "tsakhur": 20
+       }
+      },
+      {
+       "text": "«Пусть снимет халат и выступит открыто».",
+       "rep": {
+        "tsakhur": 10
+       }
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 300,
+    "rep": {
+     "tsakhur": 10
+    }
+   },
+   "req": [
+    "s_tsakhur_2"
+   ]
+  },
+  {
+   "id": "s_kumyk_1",
+   "side": true,
+   "people": "kumyk",
+   "k": 1,
+   "title": "Выбор знати",
+   "desc": "Эндирейская знать спорит, кому служить — шамхалу шаха или горцам.",
+   "steps": [
+    {
+     "type": "talk",
+     "who": "kumyk_rider",
+     "at": "village:endirey:square",
+     "name": "Эндирейский бий",
+     "lines": [
+      [
+       "kumyk_rider",
+       "Хасбулат — шамхал по воле шаха. Если мы пойдём против, равнина сгорит первой."
+      ]
+     ],
+     "choices": [
+      {
+       "text": "«Равнина горит уже сейчас. Посмотри на дым над Сулаком».",
+       "rep": {
+        "kumyk": 15
+       }
+      },
+      {
+       "text": "«Горы прикроют ваши семьи, если придётся отступить».",
+       "rep": {
+        "kumyk": 10
+       }
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 250,
+    "rep": {
+     "kumyk": 10
+    },
+    "chronicle": [
+     "shamkhalate"
+    ]
+   },
+   "offer_lines": [
+    [
+     "elder",
+     "Знать Эндирея не может решить, с кем она. Поговори с бием."
+    ]
+   ]
+  },
+  {
+   "id": "s_kumyk_2",
+   "side": true,
+   "people": "kumyk",
+   "k": 2,
+   "title": "Конная засада",
+   "desc": "Персидские фуражиры гоняют скот по равнине. Кумыкская конница ждёт вожака.",
+   "steps": [
+    {
+     "type": "fight",
+     "at": {
+      "near": "village:endirey",
+      "a": 80,
+      "d": 260
+     },
+     "text": "Ударьте по фуражирам в степи",
+     "mounted": true,
+     "allies": [
+      {
+       "at": "village:endirey:square",
+       "u": "kumyk_rider",
+       "n": 3,
+       "follow": true
+      }
+     ],
+     "spawn": [
+      {
+       "at": {
+        "near": "village:endirey",
+        "a": 80,
+        "d": 260
+       },
+       "g": [
+        [
+         "forager",
+         4
+        ],
+        [
+         "light_cav",
+         2
+        ]
+       ],
+       "state": "wander",
+       "spread": 15
+      }
+     ]
+    }
+   ],
+   "reward": {
+    "xp": 350,
+    "coins": 50,
+    "rep": {
+     "kumyk": 15
+    }
+   },
+   "req": [
+    "s_kumyk_1"
+   ]
+  },
+  {
+   "id": "s_kumyk_3",
+   "side": true,
+   "people": "kumyk",
+   "k": 3,
+   "title": "Вызов джигита",
+   "desc": "Лучший джигит Эндирея вызывает вас на скачки: обогнать его — значит заслужить уважение равнины.",
+   "steps": [
+    {
+     "type": "ride",
+     "at": {
+      "near": "village:endirey",
+      "a": 270,
+      "d": 330
+     },
+     "r": 14,
+     "limit": 55,
+     "text": "Скачки: до кургана и обратно",
+     "limitFail": "джигит пришёл первым"
+    },
+    {
+     "type": "ride",
+     "at": "village:endirey:square",
+     "r": 14,
+     "limit": 55,
+     "text": "Скачите обратно в Эндирей",
+     "limitFail": "джигит пришёл первым"
+    }
+   ],
+   "reward": {
+    "xp": 400,
+    "items": [
+     "shamkhal_saddle"
+    ],
+    "rep": {
+     "kumyk": 20
+    }
+   },
+   "req": [
+    "s_kumyk_2"
+   ]
+  }
+ ]
+}

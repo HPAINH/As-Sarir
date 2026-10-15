@@ -1,0 +1,11 @@
+import { Colliders } from "../js/world/colliders.js";
+const C = new Colliders();
+const rot = 0.7;
+const c = C.addBox(10, 5, 3, 1, rot, 0, 4);
+const lx = 2.5, lz = 0.5;
+const wx = 10 + lx * Math.cos(rot) + lz * Math.sin(rot), wz = 5 - lx * Math.sin(rot) + lz * Math.cos(rot);
+console.log("inside local corner:", C.inside(c, wx, wz), "outside:", C.inside(c, 10 + 4 * Math.cos(rot), 5 - 4 * Math.sin(rot) + 2));
+const p = { x: wx, z: wz };
+C.resolve(p, 0.4, 0, 1.8);
+console.log("pushed out:", !C.inside(c, p.x, p.z, 0.39), p);
+console.log("ground on roof:", C.groundAt(10, 5, 3.8, 0)[0], "too high:", C.groundAt(10, 5, 1.0, 0)[0]);
